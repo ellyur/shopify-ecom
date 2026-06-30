@@ -1,0 +1,4 @@
+name,category,price,stock,description,image,badges,sku
+"Red Rose Bouquet","Roses",1500,50,"A beautiful bouquet of 12 fresh red roses.","https://images.unsplash.com/photo-1548013146-72479768bbaa?q=80&w=1000&auto=format&fit=crop","Best Seller, On Sale","RRB-001"
+"White Lilies","Lilies",1200,30,"Elegant white lilies for any occasion.","https://images.unsplash.com/photo-1596438459194-f275f413d6ff?q=80&w=1000&auto=format&fit=crop","New Arrival","WL-002"
+"Pink Tulips","Tulips",1800,25,"Vibrant pink tulips from Holland.","https://images.unsplash.com/photo-1520323232427-6b624831798a?q=80&w=1000&auto=format&fit=crop","Limited Edition","PT-003"

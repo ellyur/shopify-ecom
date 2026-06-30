@@ -1,0 +1,278 @@
+INSERT INTO products (id, name, slug, category_id, price, stock, description, images, badges, sku, is_active, created_at, updated_at)
+VALUES
+(33, 'Pink Carnation Bouquet', 'Carnation-bouquet-w8uj0', 4, 999.00, 100, '10 pcs pink carnation 
+Aster Fillers
+Round Bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1771665774/6246564345152211728_bfpt04.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-C7VI3Z4', true, '2026-02-25 10:55:40.939728', '2026-02-25 10:55:40.939728'),
+(34, 'Pink Carnation Bouquet', 'Carnation-bouquet-p6wld', 4, 999.00, 100, '10 pcs Pink Carnation 
+Aster Fillers
+Round Bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1771665769/6109156349804481803_yp32wm.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-2RPGQ0F', true, '2026-02-25 10:56:44.739188', '2026-02-25 10:56:44.739188'),
+(35, 'Pink Carnation Bouquet', 'Carnation-bouquet-78q22', 4, 999.00, 100, '10 pcs pink Carnation
+Aster Fillers
+Round Bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1771665769/6246564345152211725_dt5emf.jpg']::text[], ARRAY['On Sale', 'Most Favorite']::text[], 'SKU-V2IPJ5J', true, '2026-02-25 10:59:03.11202', '2026-02-25 10:59:03.11202'),
+(36, 'Red Carnation Bouquet', 'Carnation-bouquet-tl68t', 4, 999.00, 100, '10 pcs red carnation
+aster fillers
+round bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1771665771/6109156349804481801_1_gvqgxt.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-W0LYL77', true, '2026-02-25 11:01:15.934055', '2026-02-25 11:01:15.934055'),
+(37, 'Red Carnation Bouquet', 'Carnation-bouquet-4xwnf', 4, 999.00, 100, '10pcs red carnation
+aster fillers
+round bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1771665768/6109156349804481802_tldi9k.jpg']::text[], ARRAY['On Sale', 'Most Favorite']::text[], 'SKU-41SPSEP', true, '2026-02-25 11:02:48.858594', '2026-02-25 11:02:48.858594'),
+(38, 'Pink Carnation Bouquet', 'Carnation-bouquet-9jkdd', 4, 999.00, 100, '10 pink carnation
+aster fillers
+round bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1771665763/6109156349804481804_xvmwie.jpg']::text[], ARRAY['On Sale', 'Most Favorite']::text[], 'SKU-43LNY23', true, '2026-02-25 11:04:31.447329', '2026-02-25 11:04:31.447329'),
+(39, '1 dozen rose pink', 'Local Roses-bouquet-iihc2', 1, 899.00, 100, '1 dozen Pink roses 
+aster fillers
+round bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772018351/6122850414941114248_ad4d27.jpg']::text[], ARRAY['On Sale', 'Most Favorite']::text[], 'SKU-4VJATZO', true, '2026-02-25 11:21:16.51911', '2026-02-25 11:21:16.51911'),
+(40, '1 dozen Rose', 'Local Roses-bouquet-vxlgu', 1, 899.00, 100, '1 dozen pink and white
+Msty Blue Fillers
+Round Bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772018351/6122850414941114251_q2lxxz.jpg']::text[], ARRAY[]::text[], 'SKU-XBQ6FSU', true, '2026-02-25 11:22:58.529821', '2026-02-25 11:22:58.529821'),
+(41, '1 dozen Rose', 'Local Roses-bouquet-uww1e', 1, 899.00, 100, '6 pcs red 6 pcs white rose
+Misty Blue
+round bouquet ', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772018357/6122850414941114229_fugyzs.jpg']::text[], ARRAY['On Sale', 'Most Favorite']::text[], 'SKU-K44XM7E', true, '2026-02-25 11:25:16.329996', '2026-02-25 11:25:16.329996'),
+(42, '1 dozen Rose', 'Local Roses-bouquet-gxene', 1, 899.00, 99, '1 dozen red roses
+aster fillers
+round bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772018356/6122850414941114230_sg83uu.jpg']::text[], ARRAY['On Sale', 'Most Favorite']::text[], 'SKU-3RCHSYR', true, '2026-02-25 11:26:20.040835', '2026-02-25 11:26:20.040835'),
+(43, '1 dozen Rose', 'Local Roses-bouquet-l1ccz', 1, 899.00, 100, '6 pink and 6 red roses 
+aster fillers
+round bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772018353/6258052029750560838_klmiog.jpg']::text[], ARRAY[]::text[], 'SKU-BLK3RXL', true, '2026-02-25 11:27:34.137163', '2026-02-25 11:27:34.137163'),
+(44, '1 dozen Rose', 'Local Roses-bouquet-0y0ws', 1, 899.00, 100, '1 dozen purple roses
+misty blue fillers
+round bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772018355/6122850414941114235_kpdhnr.jpg']::text[], ARRAY[]::text[], 'SKU-1Y81EZQ', true, '2026-02-25 11:28:52.48388', '2026-02-25 11:28:52.48388'),
+(45, '1 dozen Rose', 'Local Roses-bouquet-pbgme', 1, 899.00, 100, '6 pink rose 6 white rose
+Misty Blue fillers
+Round bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772019259/6122850414941114247_ffszz3.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-M1ZC6XW', true, '2026-02-25 11:35:20.691308', '2026-02-25 11:35:20.691308'),
+(46, '1 dozen Rose', 'Local Roses-bouquet-vf09w', 1, 899.00, 99, '1 dozen white roses
+misty blue fillers
+round bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772019245/6122850414941114225_al50bu.jpg']::text[], ARRAY['On Sale', 'Most Favorite']::text[], 'SKU-4JGU4EK', true, '2026-02-25 11:36:13.764562', '2026-02-25 11:36:13.764562'),
+(47, '2dz rose', 'Local Roses-bouquet-a5js6', 1, 1200.00, 100, '12 pcs pink rose
+12 pcs white rose
+misty blue fillers
+round bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772019514/6122850414941114244_yg5fgo.jpg']::text[], ARRAY[]::text[], 'SKU-QHWN2NV', true, '2026-02-25 11:40:01.20196', '2026-02-25 11:40:01.20196'),
+(48, '2 dozen rose', 'Local Roses-bouquet-yqu0v', 1, 1200.00, 100, '24 pcs pink roses
+aster fillers
+round bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772019513/6122850414941114246_alpagl.jpg']::text[], ARRAY[]::text[], 'SKU-VPSPMMI', true, '2026-02-25 11:41:19.438685', '2026-02-25 11:41:19.438685'),
+(49, '2 dozen rose', 'Local Roses-bouquet-7diu9', 1, 1200.00, 100, '2 dozen red local roses
+aster fillers 
+round bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772019513/6122850414941114249_dic2li.jpg']::text[], ARRAY['Most Favorite']::text[], 'SKU-LRFDLMS', true, '2026-02-25 11:42:37.112867', '2026-02-25 11:42:37.112867'),
+(50, '2dozen rose', 'Local Roses-bouquet-ztn94', 1, 1200.00, 100, '12 pcs pink rose
+12 pcs white rose
+aster fillers
+round bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772019512/6122850414941114252_qjiea5.jpg']::text[], ARRAY[]::text[], 'SKU-TZYE40R', true, '2026-02-25 11:44:16.761815', '2026-02-25 11:44:16.761815'),
+(51, '2 dozen Purple Tulips', 'tulips-bouquet-0tnc3', 2, 5000.00, 99, '24 pcs tulips purple
+Misty Blue fillers
+Arm bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020657/6122850414941114271_itlcqj.jpg']::text[], ARRAY[]::text[], 'SKU-X33I08I', true, '2026-02-25 12:03:55.58815', '2026-02-25 12:03:55.58815'),
+(52, '8 pcs TULIPS BOUQUET', 'tulips-bouquet-3cz2y', 2, 2800.00, 100, '4 pink tulips
+4 white tulips
+gypso fillers
+arm bouquet', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020609/6122850414941114272_dvbzud.jpg']::text[], ARRAY[]::text[], 'SKU-QMZOLHD', true, '2026-02-25 12:05:41.520272', '2026-02-25 12:05:41.520272'),
+(53, '2 dozen Pink Tulips', 'tulips-bouquet-therb', 2, 5000.00, 100, '24 pcs pink tulips pink
+gypso fillers
+arm bouquet ', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020607/6122850414941114275_wkwooq.jpg']::text[], ARRAY[]::text[], 'SKU-MXZLNT0', true, '2026-02-25 12:07:15.435859', '2026-02-25 12:07:15.435859'),
+(54, '3 pcs tulips pink', 'tulips-bouquet-zij8k', 2, 1500.00, 98, '3 pcs tulips pink
+gypso fillers
+', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020604/6122850414941114274_irwkk8.jpg']::text[], ARRAY[]::text[], 'SKU-2I6LZ89', true, '2026-02-27 09:11:09.146259', '2026-02-27 09:11:09.146259'),
+(55, 'TULIPS & ROSES BOUQUET', 'tulips-bouquet-d7mkd', 2, 2500.00, 100, '6 PINK TULIPS
+1 DOZEN PINK ROSES
+GYPSO FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020604/6122850414941114276_xhlh0e.jpg']::text[], ARRAY[]::text[], 'SKU-AXJ9N25', true, '2026-02-27 09:12:29.093031', '2026-02-27 09:12:29.093031'),
+(56, '2 DOZEN TULIPS PURPLE', 'tulips-bouquet-7pclt', 2, 5000.00, 100, '24 PCS TULIPS PURPLE
+', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020602/6122850414941114273_s8w5tp.jpg']::text[], ARRAY[]::text[], 'SKU-1P4QJ9K', true, '2026-02-27 09:13:17.904404', '2026-02-27 09:13:17.904404'),
+(57, '2 DOZEN PINK TULIPS ', 'tulips-bouquet-5hfqk', 2, 5000.00, 100, '24 PCS PINK TULIPS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020599/6122850414941114278_qmvmnq.jpg']::text[], ARRAY[]::text[], 'SKU-64OM7UY', true, '2026-02-27 09:14:23.865953', '2026-02-27 09:14:23.865953'),
+(58, '1 DOZEN PINK TULIPS', 'tulips-bouquet-f5n5y', 2, 3500.00, 100, '12 PCS PINK TULIPS
+GYPSO FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020598/6122850414941114279_c57a9k.jpg']::text[], ARRAY[]::text[], 'SKU-ZYF01AO', true, '2026-02-27 09:15:11.24976', '2026-02-27 09:15:11.24976'),
+(59, 'TULIPS W/ CARNATION ', 'tulips-bouquet-carnation-u91d8', 2, 3899.00, 100, '10 pcs carnation
+1 dozen pink tulips
+gypso fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020596/6122850414941114280_ejtdct.jpg']::text[], ARRAY[]::text[], 'SKU-N875R0Y', true, '2026-02-27 09:16:39.488826', '2026-02-27 09:16:39.488826'),
+(60, '2 DOZEN TULIPS PINK', 'tulips-bouquet-b9n7v', 2, 6000.00, 99, '24 PCS TULIPS PINK
+MSTY PINK FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020595/6122850414941114281_hmu08i.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-957PUS1', true, '2026-02-27 09:17:53.395865', '2026-02-27 09:17:53.395865'),
+(61, 'MINI PINK TULIPS', 'tulips-bouquet-54523', 2, 1999.00, 98, '5 PCS PINK TULIPS
+MSTY BLUE FILLERS
+', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020594/6122850414941114282_kh0kus.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-VN9SB2E', true, '2026-02-27 09:19:08.549636', '2026-02-27 09:19:08.549636'),
+(62, 'PINK TULIPS', 'tulips-bouquet-x8txa', 2, 2500.00, 100, '6 PCS PINK TULIPS
+GYPSO FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020588/6122850414941114285_hrev7i.jpg']::text[], ARRAY[]::text[], 'SKU-EAJCKX3', true, '2026-02-27 09:20:15.966759', '2026-02-27 09:20:15.966759'),
+(63, '1 DOZEN PINK TULIPS', 'tulips-bouquet-ogqbs', 2, 3500.00, 100, '12 PCS PINK TULIPS
+GYPSO FILLERS
+EUCALYPTUS FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020586/6122850414941114287_tdh0w3.jpg']::text[], ARRAY[]::text[], 'SKU-PUUPXXQ', true, '2026-02-27 09:21:40.316288', '2026-02-27 09:21:40.316288'),
+(64, '1 DOZEN PINK TULIPS', 'tulips-bouquet-0jjir', 2, 3500.00, 100, '12 PCS PINK TULIPS
+GYPSO AND EUCALYPTUS FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020586/6122850414941114289_xzf5it.jpg']::text[], ARRAY[]::text[], 'SKU-NSGXLII', true, '2026-02-27 09:23:02.30926', '2026-02-27 09:23:02.30926'),
+(65, 'BLUE TULIPS', 'tulips-bouquet-yiqdn', 2, 4500.00, 100, '1 DOZEN BLUE TULIPS
+GYPSO AND EUCALYPTUS FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020584/6122850414941114288_pqxy0t.jpg']::text[], ARRAY[]::text[], 'SKU-KQ4C51V', true, '2026-02-27 09:24:24.232831', '2026-02-27 09:24:24.232831'),
+(66, 'RED TULIPS', 'tulips-bouquet-tetxk', 2, 4898.99, 100, '24 PCS RED TULIPS
+', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020579/6122850414941114295_xmke5d.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-U0YUHMH', true, '2026-02-27 09:25:23.971037', '2026-02-27 09:25:23.971037'),
+(67, 'YELLOW TULIPS', 'tulips-bouquet-wfslr', 2, 6000.00, 100, '24 PCS YELLOW TULIPS
+CHAMOMILE FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020575/6122850414941114294_wubkl5.jpg']::text[], ARRAY[]::text[], 'SKU-E8FVXV5', true, '2026-02-27 09:26:49.620611', '2026-02-27 09:26:49.620611'),
+(68, 'PINK TULIPS', 'tulips-bouquet-ubtl1', 2, 5000.00, 100, '30 PCS LIGHT PINK TULIPS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020574/6122850414941114297_jhpwid.jpg']::text[], ARRAY[]::text[], 'SKU-BJ6NV3S', true, '2026-02-27 09:27:28.579974', '2026-02-27 09:27:28.579974'),
+(69, '1 DOZEN PINK TULIPS', 'tulips-bouquet-9tel6', 2, 3500.00, 98, '12 PCS PINK TULIPS
+MSTY PINK FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772020573/6122850414941114298_dtu8il.jpg']::text[], ARRAY[]::text[], 'SKU-XJJKPA9', true, '2026-02-27 09:28:08.161412', '2026-02-27 09:28:08.161412'),
+(70, 'Pink Carnation Bouquet', 'Carnation-bouquet-zczm3', 4, 999.00, 100, '10 PCS PINK CARNATION
+ASTER FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1771665759/6109156349804481805_a9agjb.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-EBQOSYB', true, '2026-02-27 09:29:29.716783', '2026-02-27 09:29:29.716783'),
+(71, 'YELLOW CARNATION', 'Carnation-bouquet-3zm65', 4, 1200.00, 100, '10 PCS CARNATION YELLOW
+ASTER FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1771665758/6109156349804481799_rc3vzh.jpg']::text[], ARRAY[]::text[], 'SKU-JI1PZAN', true, '2026-02-27 09:30:20.534404', '2026-02-27 09:30:20.534404'),
+(72, 'Pink Carnation Bouquet', 'Carnation-bouquet-eqkoc', 4, 999.00, 100, '10 PCS PINK CARNATION
+ASTER FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1771665760/6246564345152211729_rdouob.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-RFVMN07', true, '2026-02-27 09:31:04.703715', '2026-02-27 09:31:04.703715'),
+(73, 'Red Carnation Bouquet', 'Carnation-bouquet-fp5fz', 4, 999.00, 100, '10 PCS CARNATION RED
+ASTER FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772184764/6122850414941114240_j3oy7f.jpg']::text[], ARRAY[]::text[], 'SKU-PJB87AA', true, '2026-02-27 09:33:25.239228', '2026-02-27 09:33:25.239228'),
+(74, '3 DOZEN ROSES BOUQUET', '3DZ RED ROSE- BOUQUET-jcy7l', 1, 1899.00, 100, '36 PCS RED ROSES BOUQUET
+MSTY BLUE FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772184997/6127488051907858045_uuslx2.jpg']::text[], ARRAY[]::text[], 'SKU-XO7288S', true, '2026-02-27 09:38:21.528081', '2026-02-27 09:38:21.528081'),
+(75, '3DZ RED ROSE BOUQUET', 'Local Roses-bouquet-oczun', 1, 1899.00, 100, '36 PCS LOCAL ROSES
+MSTY BLUE FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772185001/6127488051907858043_mr8heq.jpg']::text[], ARRAY[]::text[], 'SKU-9C81KA2', true, '2026-02-27 09:39:24.989756', '2026-02-27 09:39:24.989756'),
+(76, '3DZ PINK Roses', 'tulips-bouquet-ychab', 1, 1899.00, 100, '36 PCS PINK LOCAL ROSES
+ASTER FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772185002/6127488051907858042_fabhnl.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-YFPKO8A', true, '2026-02-27 09:39:59.665048', '2026-02-27 09:39:59.665048'),
+(77, '3DZ PINK ROSES', 'Local Roses-bouquet-6054v', 1, 1899.00, 100, '36 PCS PINK LOCAL ROSES
+ASTER FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772185034/6127488051907858038_mxc0jt.jpg']::text[], ARRAY[]::text[], 'SKU-LCPK49P', true, '2026-02-27 09:40:56.77406', '2026-02-27 09:40:56.77406'),
+(78, 'RED ROSES BOUQUET', 'Local Roses-bouquet-ldfvx', 1, 2000.00, 1000, '40 PCS RED ROSES
+', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772185036/6256037449574321084_mgyurd.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-2MC03M4', true, '2026-02-27 09:41:47.986792', '2026-02-27 09:41:47.986792'),
+(79, 'RED ROSES BOUQUET', 'Local Roses-bouquet-dqm3c', 1, 2000.00, 100, '40 PCS RED ROSES BOUQUET
+ASTER FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772185091/6127488051907858040_jjcqvr.jpg']::text[], ARRAY[]::text[], 'SKU-US4JO4H', true, '2026-02-27 09:42:51.185602', '2026-02-27 09:42:51.185602'),
+(80, 'RED ROSES BOUQUET', 'Local Roses-bouquet-ok2vb', 1, 2000.00, 100, '40 PCS RED ROSES BOUQUET', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772185093/6127488051907858039_fx9egd.jpg']::text[], ARRAY[]::text[], 'SKU-92MMAUW', true, '2026-02-27 09:44:09.742999', '2026-02-27 09:44:09.742999'),
+(81, 'RED ROSES BOUQUET', 'Local Roses-bouquet-xymc5', 1, 1899.00, 99, '36 PCS RED LOCAL ROSES
+MSTY BLUE FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772185114/6256037449574321083_o0gkcs.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-YZG84Q5', true, '2026-02-27 09:44:55.132976', '2026-02-27 09:44:55.132976'),
+(82, 'RED ROSES BOUQUET', 'Local Roses-bouquet-i2n0r', 1, 2500.00, 98, '40 PCS RED LOCAL ROSES
+ASTER FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772185118/6127488051907858037_bfez8z.jpg']::text[], ARRAY[]::text[], 'SKU-5LJLVMJ', true, '2026-02-27 09:45:46.749132', '2026-02-27 09:45:46.749132'),
+(83, '3DZ RED ROSE BOUQUET', 'Local Roses-bouquet-v5zjr', 1, 2500.00, 100, '40 pcs red local roses
+gypso and aster fillers
+', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772185748/6122850414941114232_zqkwgz.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-2XDO28O', true, '2026-02-27 09:50:05.332485', '2026-02-27 09:50:05.332485'),
+(84, 'MINI BOUQUET', 'MINI-BOUQUET-3omo3', 1, 749.00, 100, '8 PCS WHITE ROSES
+MSTY BLUE FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772185844/6122850414941114243_uupa5f.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-QD0M7S7', true, '2026-02-27 09:54:35.497492', '2026-02-27 09:54:35.497492'),
+(85, '100 PCS RED ROSES ', 'Local Roses-bouquet-1y2dp', 1, 5000.00, 100, '100 PCS RED LOCAL ROSES
+', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772186153/6127488051907858062_tzio4y.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-UIWLADR', true, '2026-02-27 09:56:46.616293', '2026-02-27 09:56:46.616293'),
+(86, '100 PCS RED ROSES ', 'Local Roses-bouquet-8eymd', 1, 5000.00, 100, '100 PCS RED LOCAL ROSES
+GYPSO FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772186157/6127488051907858060_onzh7i.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-8DGB0E2', true, '2026-02-27 09:57:29.181992', '2026-02-27 09:57:29.181992'),
+(87, 'HEART SHAPE BOUQUET', 'Local Roses-bouquet-g7dqf', 1, 6500.00, 100, '100-150 PCS RED LOCAL ROSES
+GYPSO FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772186160/6127488051907858058_umc6uw.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-Y4L43H1', true, '2026-02-27 09:58:21.30614', '2026-02-27 09:58:21.30614'),
+(88, 'RED ROSES BOUQUET', 'Local Roses-bouquet-quqv9', 1, 2500.00, 100, '40 PCS RED ROSES LOCAL
+ASTER FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772186160/6127488051907858055_f13efw.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-21CTVEG', true, '2026-02-27 09:59:01.906753', '2026-02-27 09:59:01.906753'),
+(89, '200 PCS RED ROSES BOUQUET', 'Local Roses-bouquet-wfiaa', 1, 9999.00, 100, '200 PCS RED LOCAL RED ROSES
+GYPSO FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772186161/6127488051907858057_pdqvrv.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-MU15DKN', true, '2026-02-27 10:01:46.031355', '2026-02-27 10:01:46.031355'),
+(90, '1 DZ WHITE ROSE', 'Local Roses-bouquet-3jhbb', 1, 899.00, 100, '12 PCS WHITE ROSES
+ASTER FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772186737/6127488051907858103_v2becm.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-PKJPXSE', true, '2026-02-27 10:07:27.224072', '2026-02-27 10:07:27.224072'),
+(91, '2DZ WHITE AND PINK ROSE', 'Local Roses-bouquet-hjv45', 1, 1200.00, 98, '12 PCS PINK LOCAL ROSE
+12 PCS WHITE LOCAL ROSE
+ASTER FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772186883/6127488051907858133_1_bjguhl.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-K60RA5A', true, '2026-02-27 10:09:00.020398', '2026-02-27 10:09:00.020398'),
+(92, '1 dozen PINK Rose', 'Local Roses-bouquet-i3cue', 1, 899.00, 99, '12 PCS PINK ROSES
+ASTER FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772186883/6127488051907858134_1_yklbwz.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-XKJG5L1', true, '2026-02-27 10:09:50.889655', '2026-02-27 10:09:50.889655'),
+(93, '10 pcs china roses pink', 'china roses-bouquet-zia5t', 8, 3500.00, 99, '10 pcs pink china roses
+gypso fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772187420/6127488051907858155_l1fagw.jpg']::text[], ARRAY[]::text[], 'SKU-3Y0YL9V', true, '2026-02-27 10:22:13.736152', '2026-02-27 10:22:13.736152'),
+(94, '20 pcs china roses', 'china roses-bouquet-jyitl', 8, 5000.00, 100, '20 PCS PINK CHINA ROSES
+EUCALYPTUS FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772187438/6127488051907858153_tunpzd.jpg']::text[], ARRAY[]::text[], 'SKU-O6LDPXE', true, '2026-02-27 10:27:29.964217', '2026-02-27 10:27:29.964217'),
+(95, '40PCS CHINA TWO TONE CHINA', 'china roses-bouquet-yv99y', 8, 7000.00, 100, '40 PCS TWO TONE CHINA ROSES
+', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772187439/6127488051907858154_fen321.jpg']::text[], ARRAY[]::text[], 'SKU-QAT4OFF', true, '2026-02-27 10:28:38.653712', '2026-02-27 10:28:38.653712'),
+(96, '20 PCS TWO TONE CHINA ROSES', 'china roses-bouquet-56sdr', 8, 4500.00, 100, '20 PCS TWO TONE CHINA ROSES
+EUCALYPTUS FILLERS
+', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772187441/6127488051907858152_omdfq7.jpg']::text[], ARRAY[]::text[], 'SKU-E5W4J0H', true, '2026-02-27 10:29:55.579623', '2026-02-27 10:29:55.579623'),
+(97, '10 pcs china roses pink', 'china roses-bouquet-36pro', 8, 3500.00, 99, '10 PCS TWO TONE CHINA ROSES
+EUCALYPTUS FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772187443/6127488051907858151_yrnwtj.jpg']::text[], ARRAY[]::text[], 'SKU-01VH015', true, '2026-02-27 10:31:09.023951', '2026-02-27 10:31:09.023951'),
+(98, '20 PCS TWO TONE CHINA ROSES', 'china roses-bouquet-3yg9d', 8, 4800.00, 100, '20 PCS CHINA ROSES TWO TONE
+EUCALYPTUS FILLERS
+WITH BURLAP', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772187443/6127488051907858150_royh0b.jpg']::text[], ARRAY[]::text[], 'SKU-I48S2WT', true, '2026-02-27 10:33:33.880691', '2026-02-27 10:33:33.880691'),
+(99, 'RED AND PINK CHINA ROSE', 'china roses-bouquet-1luam', 8, 4699.00, 96, '10 PCS RED CHINA ROSE
+10 PCS PINK CHINA ROSE
+GYPSOPHILIA FILLERS', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772187447/6127488051907858148_n6r3qa.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-IMSZ4JF', true, '2026-02-27 10:36:16.53699', '2026-02-27 10:36:16.53699'),
+(100, '10 pcs China Red roses', 'china roses-bouquet-iitbr', 8, 4500.00, 100, '10 pcs china roses
+eucalyptus and gypso fillers ', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772187450/6127488051907858146_exy5rt.jpg']::text[], ARRAY[]::text[], 'SKU-8N3D5E9', true, '2026-03-01 02:16:22.042951', '2026-03-01 02:16:22.042951'),
+(101, '40 pcs Two tone China Roses', 'china roses- bouquet-u93n2', 8, 7000.00, 100, '40 pcs two tone china roses', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772187451/6127488051907858144_la3gzi.jpg']::text[], ARRAY[]::text[], 'SKU-PSDU4HW', true, '2026-03-01 02:17:32.919593', '2026-03-01 02:17:32.919593'),
+(102, '50 pcs white china roses', 'china roses-bouquet-y9eix', 8, 8000.00, 99, '50 pcs china roses white
+', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772187454/6127488051907858145_itpbux.jpg']::text[], ARRAY[]::text[], 'SKU-SYQXPOP', true, '2026-03-01 02:18:54.071039', '2026-03-01 02:18:54.071039'),
+(103, '20pcs Red China', 'china roses-bouquet-j330u', 8, 4500.00, 99, '20 pcs Red china roses 
+Misty blue fillers
+', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772187456/6127488051907858147_kx52gg.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-8BY77Z6', true, '2026-03-01 02:20:03.360609', '2026-03-01 02:20:03.360609'),
+(104, 'Purple Theme bouquet ', 'china roses-bouquet-1m0cm', 8, 7000.00, 100, '40 pcs china roses( purple,white, pink)
+statis and eucalyptus fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772187460/6127488051907858141_njau35.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-QLS7QLL', true, '2026-03-01 02:34:55.229793', '2026-03-01 02:34:55.229793'),
+(105, '10 two tone pink', 'china roses- bouquet -019ps', 8, 3500.00, 97, '10 pcs two tone china pink
+eucalyptus fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772187461/6127488051907858142_ewcqlc.jpg']::text[], ARRAY[]::text[], 'SKU-OF5CMD2', true, '2026-03-01 02:42:17.962153', '2026-03-01 02:42:17.962153'),
+(106, '2 dozen White tulips', 'tulips- bouquet-acvhn', 2, 4999.00, 100, '24 pcs white tulips
+gypso fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772333726/IMG_1526_b2dt14.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-2SPFPKA', true, '2026-03-01 02:57:05.159567', '2026-03-01 02:57:05.159567'),
+(107, 'Carnation Roses', 'carnation roses- bouquet-r19iv', 4, 3500.00, 100, '10 pcs carnation pink
+1 dozen pink roses
+1 dozen white roses
+misty blue fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772333727/IMG_1525_osn5sz.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-61JSVBT', true, '2026-03-01 02:59:05.622303', '2026-03-01 02:59:05.622303'),
+(108, 'stargazer roses', 'stargazer- bouquet -cn39z', 5, 3500.00, 100, '1 stargazer
+10 pcs pink carnation
+1 dozen red roses', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772333727/IMG_1529_kcwxq9.jpg']::text[], ARRAY[]::text[], 'SKU-0M2PDFU', true, '2026-03-01 03:00:35.900752', '2026-03-01 03:00:35.900752'),
+(109, 'Hydrangeas with roses', 'hydrangea- bouquet-pvbu7', 10, 3500.00, 100, '4 hydrangeas
+1 dozen pink roses 
+1 dozen white roses
+Gypso fillers
+Misty Blue fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772333728/IMG_1528_h7tl64.jpg']::text[], ARRAY[]::text[], 'SKU-6NYXH8G', true, '2026-03-01 03:03:26.214127', '2026-03-01 03:03:26.214127'),
+(110, 'carnation gerbera', 'carnation gerbera-bouquet-ognqn', 4, 4500.00, 100, '10 pcs gerbera yellow
+10 pcs white carnation
+10 pcs yellow carnation 
+eucalyptus ', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772333728/IMG_1532_m4mvdg.jpg']::text[], ARRAY[]::text[], 'SKU-YTU1MH8', true, '2026-03-01 03:06:01.463555', '2026-03-01 03:06:01.463555'),
+(111, 'White roses bouquet ', 'roses- bouquet -h2vun', 1, 2500.00, 100, '40 pcs white roses 
+Misty blue fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772333728/IMG_1533_w8lluj.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-5VT484U', true, '2026-03-01 03:08:20.076729', '2026-03-01 03:08:20.076729'),
+(112, 'stargazer w/ carnation roses', 'stargazer- bouquet-wlfyo', 5, 3500.00, 100, '1 stargazer
+10 pcs pink carnation
+1 dozen pink roses', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772333728/IMG_1536_quyhik.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-L59GNPV', true, '2026-03-01 03:11:41.380167', '2026-03-01 03:11:41.380167'),
+(113, '20 pcs Sunflowers', 'sunflower-bouquet-pgr8t', 3, 3000.00, 100, '20 pcs Sunflower
+gypso and eucalyptus fillers ', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772333728/IMG_1534_flcwe9.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-MNEB2FY', true, '2026-03-01 03:14:41.754351', '2026-03-01 03:14:41.754351'),
+(114, 'double petals lilies w/ tulips and roses', 'stargazer-bouquet -ul4iq', 5, 7000.00, 100, '1 double petals stargazer
+5 pcs pink tulips
+1 dozen pink roses
+1 dozen white roses
+1 eucalyptus 
+1 gypso', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772333728/IMG_1535_khmfqy.jpg']::text[], ARRAY[]::text[], 'SKU-4EY7WQI', true, '2026-03-01 03:20:18.440774', '2026-03-01 03:20:18.440774'),
+(115, 'stargazer w/ roses', 'stargazer-bouquet-bcsav', 5, 4999.00, 100, '1 stargazer 
+1 bundle (24 pcs) hot pink local roses
+1 bundle (24 pcs) light pink local roses
+eucalyptus fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772333729/IMG_1537_ppxbhb.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-39OQDC4', true, '2026-03-01 03:27:31.514298', '2026-03-01 03:27:31.514298'),
+(116, '50 pcs red roses', 'red roses- bouquet -36a34', 1, 2999.00, 100, '50 pcs red roses local
+gypso and misty blue fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772333729/IMG_1538_iahpn0.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-EFZKU9O', true, '2026-03-01 06:18:34.02874', '2026-03-01 06:18:34.02874'),
+(117, 'purple hydrangea', 'hydrangea-bouquet-7te94', 10, 3500.00, 100, '4 hydrangea purple
+10 pcs carnation pink
+2 dz purple
+gypso  and misty fillers ', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772333730/IMG_1540_eghzxa.jpg']::text[], ARRAY[]::text[], 'SKU-12RIMUM', true, '2026-03-01 07:44:20.528963', '2026-03-01 07:44:20.528963'),
+(118, 'Peonies with Carnation pink', 'peonies-carnation-bouquet -tmu9w', 12, 4500.00, 100, '2 peonies pink
+10 pink carnation
+misty blue fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772333731/IMG_1541_jyp54x.jpg']::text[], ARRAY[]::text[], 'SKU-FGVO3YD', true, '2026-03-01 07:48:17.848619', '2026-03-01 07:48:17.848619'),
+(119, '1 dozen tulips pink', 'tulips-bouquet -fx8q9', 2, 3500.00, 100, '24 pcs tulips pink
+gypso and eucalyptus fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772333731/IMG_1543_my220n.jpg']::text[], ARRAY[]::text[], 'SKU-I945T4P', true, '2026-03-01 07:53:54.306421', '2026-03-01 07:53:54.306421'),
+(120, 'Sunflower rose', 'sunflower-bouquet -cvbhi', 3, 1500.00, 100, '3 sunflower
+3 red roses
+aster fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772352364/IMG_1571_hza3b1.jpg']::text[], ARRAY[]::text[], 'SKU-EGW2SP0', true, '2026-03-01 08:18:16.909321', '2026-03-01 08:18:16.909321'),
+(121, 'sunflower roses', 'sunflower-bouquet -ejs74', 3, 1800.00, 100, '3 sunflower 
+12 pcs red roses
+aster fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772352364/IMG_1577_sw2sul.jpg']::text[], ARRAY[]::text[], 'SKU-YWQ911K', true, '2026-03-01 08:19:54.800121', '2026-03-01 08:19:54.800121'),
+(122, 'Sunflower Rose', 'sunflower-bouquet -yqw4b', 3, 1800.00, 100, '3 sunflower 
+12pcs red roses
+aster fillers ', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772352365/IMG_1568_dxkwoo.jpg']::text[], ARRAY[]::text[], 'SKU-RYJZM2P', true, '2026-03-01 08:23:16.407432', '2026-03-01 08:23:16.407432'),
+(123, '10pcs Sunflower ', 'sunflower-bouquet -16rqr', 3, 1800.00, 100, '10pcs Sunflower 
+Misty Blue Fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772352365/IMG_1576_jibqtz.jpg']::text[], ARRAY[]::text[], 'SKU-R7OWZ1M', true, '2026-03-01 08:29:13.708898', '2026-03-01 08:29:13.708898'),
+(124, 'Sunflower Carnations ', 'sunflower-bouquet -yslfv', 3, 2999.00, 100, '6 pcs Sunflower 
+10pcs Carnation 
+1 eucalyptus ', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772352365/IMG_1570_t3xb3q.jpg']::text[], ARRAY[]::text[], 'SKU-LQY4WNW', true, '2026-03-01 08:32:03.531665', '2026-03-01 08:32:03.531665'),
+(125, '6pcs Sunflower ', 'sunflower- bouquet -r24mi', 3, 2000.00, 100, '6 pcs Sunflower 
+Aster Fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772352365/IMG_1573_u7xjlw.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-EBI3FHR', true, '2026-03-01 08:33:14.558572', '2026-03-01 08:33:14.558572'),
+(126, '6pcs Sunflower', 'Sunflower-bouquet -p06an', 3, 2500.00, 100, '6pcs sunflower
+aster fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772352366/IMG_1572_c8jvtp.jpg']::text[], ARRAY[]::text[], 'SKU-R982E28', true, '2026-03-01 09:00:57.198117', '2026-03-01 09:00:57.198117'),
+(127, '20pcs Sunflower ', 'sunflower-bouquet -dt9gi', 3, 3800.00, 100, '20 pcs Sunflower 
+Eucalyptus fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772352365/IMG_1575_cvxb6j.jpg']::text[], ARRAY['Best Seller']::text[], 'SKU-D61ONS1', true, '2026-03-01 09:09:47.511151', '2026-03-01 09:09:47.511151'),
+(128, 'sunflower roses', 'sunflower-bouquet -jfklx', 3, 1800.00, 100, '3 sunflower 
+6pcs Red roses
+Aster', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772352366/IMG_1569_bv2hjz.jpg']::text[], ARRAY[]::text[], 'SKU-I6MKEXH', true, '2026-03-01 09:16:22.702045', '2026-03-01 09:16:22.702045'),
+(129, 'Purple roses', 'purple rose-bouquet-llvtm', 1, 899.00, 100, '6 pcs white rose
+6 pcs purple rose
+misty blue', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772357987/IMG_1598_gtcjxq.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-8A9TNRL', true, '2026-03-01 09:41:51.757373', '2026-03-01 09:41:51.757373'),
+(130, '1 dozen rose', 'local rose-bouquet-7nrhy', 1, 899.00, 100, '6 pcs white roses
+6pcs pink roses
+Misty blue Fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772357988/IMG_1595_tced26.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-3G0MGG3', true, '2026-03-01 09:48:12.65738', '2026-03-01 09:48:12.65738'),
+(131, '1dozen roses', '899-2e46y', 1, 899.00, 100, '6 pcs white roses
+6pcs purple rose
+Misty Blue fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772357988/IMG_1597_c9k3gt.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-U24FBKP', true, '2026-03-01 09:50:20.188497', '2026-03-01 09:50:20.188497'),
+(132, '1 dozen Red Roses', 'Red roses-bouquet -5rmp5', 1, 899.00, 100, '12 pcs Red Roses
+Aster Fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772357988/IMG_1589_ofeacy.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-31TGD2L', true, '2026-03-01 09:53:04.914912', '2026-03-01 09:53:04.914912'),
+(133, 'blue roses', 'blue roses-bouquet-h4f3o', 1, 899.00, 100, '6pcs White roses
+6pcs blue roses
+aster fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772357988/IMG_1596_u9ajaa.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-91CS8Z1', true, '2026-03-01 09:54:36.267655', '2026-03-01 09:54:36.267655'),
+(134, '1 dozen White rose', 'white rose-bouquet -3479i', 1, 899.00, 100, '12 pcs White Rose
+Aster Fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772357988/IMG_1599_jr5bpt.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-DSDXNIL', true, '2026-03-01 09:56:03.017261', '2026-03-01 09:56:03.017261'),
+(135, '2 dozen Red roses', 'red rose-bouquet -td2i2', 1, 1200.00, 100, '24pcs Red Roses
+Aster Fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772359030/IMG_1593_u50czs.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-T3QXLK8', true, '2026-03-01 09:58:34.498613', '2026-03-01 09:58:34.498613'),
+(136, '2 dozen Roses', 'roses-bouquet -5ikr1', 1, 1200.00, 1200, '12pcs white roses
+12pcs pink roses
+Misty Blue Fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772359030/IMG_1592_qfctdh.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-PXS8SII', true, '2026-03-01 10:00:39.795198', '2026-03-01 10:00:39.795198'),
+(137, '2dozen Roses', 'roses-bouquet -e4i3q', 1, 1200.00, 100, '12 pcs pink roses
+12 pcs white roses
+Aster Fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772359030/IMG_1594_bfhgvg.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-FAZDRAZ', true, '2026-03-01 10:01:30.889362', '2026-03-01 10:01:30.889362'),
+(138, '2 dozen Pink Roses', 'Pink roses-bouquet-sqy2x', 1, 1200.00, 100, '24pcs Pink Roses 
+Aster Fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772359030/IMG_1590_xpbxkv.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-8G042LT', true, '2026-03-01 10:02:30.007416', '2026-03-01 10:02:30.007416'),
+(139, '2dozen Red roses', 'red rose-bouquet -vfrce', 1, 1200.00, 100, '24 pcs Red roses
+Aster Fillers', ARRAY['https://res.cloudinary.com/dzk840qjn/image/upload/v1772359031/IMG_1588_u5unkq.jpg']::text[], ARRAY['On Sale']::text[], 'SKU-5BZGKY5', true, '2026-03-01 10:04:00.529132', '2026-03-01 10:04:00.529132')
+ON CONFLICT (id) DO UPDATE SET
+name = EXCLUDED.name, slug = EXCLUDED.slug, category_id = EXCLUDED.category_id, price = EXCLUDED.price, stock = EXCLUDED.stock, description = EXCLUDED.description, images = EXCLUDED.images, badges = EXCLUDED.badges, sku = EXCLUDED.sku, is_active = EXCLUDED.is_active, updated_at = EXCLUDED.updated_at;

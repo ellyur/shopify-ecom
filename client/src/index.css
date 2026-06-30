@@ -1,0 +1,172 @@
+@media print {
+  .no-print, aside, nav, button:not(.print-only) {
+    display: none !important;
+  }
+  .DialogContent {
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  #printable-order {
+    display: block !important;
+  }
+  body {
+    background: white !important;
+  }
+  /* Hide specific browser-added print elements like URLs at the bottom */
+  @page {
+    margin: 0.5cm;
+  }
+  a[href]:after {
+    content: none !important;
+  }
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.1);
+  border-radius: 10px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.2);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Luxury Palette - neutral base, brand color via JS theme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12%;
+
+    --primary: 338 60% 40%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 338 60% 40%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 44%;
+
+    --accent: 338 45% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 338 60% 40%;
+    
+    --radius: 1rem;                /* Rounded corners for the new aesthetic */
+    
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Inter', sans-serif;
+    --font-satoshi: 'Inter', sans-serif;
+  }
+
+  .dark {
+    --background: 340 30% 8%;         /* Near Black Red-Violet */
+    --foreground: 340 15% 96%;
+    
+    --card: 340 25% 10%;
+    --card-foreground: 340 15% 96%;
+    
+    --popover: 340 25% 10%;
+    --popover-foreground: 340 15% 96%;
+    
+    --primary: 340 60% 65%;
+    --primary-foreground: 340 30% 8%;
+    
+    --secondary: 340 20% 15%;
+    --secondary-foreground: 340 15% 96%;
+    
+    --muted: 340 20% 15%;
+    --muted-foreground: 340 15% 70%;
+    
+    --accent: 340 50% 60%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 340 20% 20%;
+    --input: 340 20% 20%;
+    --ring: 340 50% 60%;
+    
+    --font-sans: 'Inter', sans-serif;
+    --font-satoshi: 'Inter', sans-serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-accent/30;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    @apply font-semibold tracking-tight;
+  }
+  .font-satoshi {
+    font-family: var(--font-satoshi);
+  }
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer utilities {
+  .text-luxury {
+    @apply tracking-[0.2em] uppercase text-xs font-semibold text-accent;
+  }
+  
+  .glass-effect {
+    @apply bg-white/40 backdrop-blur-xl border border-white/30;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--accent) / 0.2);
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent) / 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-luxury-fade {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

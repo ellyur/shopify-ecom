@@ -1,0 +1,59 @@
+Here's a questionnaire you can paste into Replit (or ask whoever/whatever is building the Comvero system) to get a full picture of what's actually been built. Once you get the answers, paste them back here and I'll help you determine how robust the system really is, and how to honestly position it for your packages.
+
+SYSTEM ARCHITECTURE
+
+Anong tech stack ginamit (frontend framework, backend framework, database)?
+Saan ito naka-host (Replit's own hosting, or deployed sa ibang cloud provider tulad ng Vercel, Render, Railway)?
+May separate ba ang database mula sa application server, o nasa same instance lahat?
+Anong database system gamit (PostgreSQL, MySQL, MongoDB, atbp.)?
+
+CORE FEATURES (per package)
+
+Paano ginagawa ang Product Management, may image upload, variations (size/color), categories?
+Paano gumagana ang Shopping Cart, naka-save ba ang cart kapag nag-refresh o naka-logout ang customer?
+Paano gumagana ang Checkout, anong steps ang dadaanan ng customer mula add-to-cart hanggang order confirmation?
+Paano ginagawa ang Order Tracking, real-time ba, o manual update ng admin ang nag-uupdate ng status?
+Paano gumagana ang Delivery Date & Time Management, may calendar UI ba, at paano nire-restrict ang mga unavailable dates/slots?
+Paano ginagawa ang Email Notifications, anong service ginamit (halimbawa SendGrid, Resend), at gaano ito reliable?
+Paano gumagana ang Seasonal & Holiday Pricing, automatic ba ito base sa date, o manual i-trigger ng admin?
+Paano ginagawa ang Advanced Reports, real data mula sa orders, o static/sample data lang?
+
+STOCK & INVENTORY
+
+Paano hinahandle ang stock kapag dalawang customers ang sabay-sabay bibili ng parehong item habang konti na lang ang stock (race condition handling)?
+Awtomatiko bang bumabawas ang stock pagkatapos ng successful order, o manual pa rin ito i-update ng admin?
+May low-stock alert ba o out-of-stock indicator sa frontend?
+
+PAYMENTS
+
+Paano hinahandle ang manual payment confirmation flow (GCash/Maya/Bank QR receipt submission)?
+Kung may Payment Gateway Integration add-on, anong gateway gagamitin (PayMongo, Xendit, atbp.) at paano ito naka-secure?
+Paano hinahandle ang failed o pending payments, may automatic timeout/cancellation ba ang unpaid orders?
+
+SECURITY & RELIABILITY
+
+May SSL/HTTPS ba ang deployed website?
+Paano protektado ang customer data (passwords, contact info), naka-encrypt ba?
+May rate limiting o protection ba laban sa spam orders o bot submissions?
+May automatic backup ba ang database, gaano kadalas?
+Ano ang mangyayari kung magka-error ang server habang kasalukuyang nag-checkout ang customer, masisira ba ang order o magkakaroon ng duplicate charge?
+
+SCALABILITY
+
+Gaano karaming concurrent users/orders kaya hawakan ng current setup bago bumagal o mag-crash?
+May auto-scaling ba ang hosting, o fixed resources lang at kailangan manual i-upgrade kapag lumaki ang traffic?
+Paano nagbabago ang monthly hosting cost base sa traffic, ano ang specific na threshold bago tumaas ang singil?
+
+ADMIN EXPERIENCE
+
+Gaano ka-intuitive ang admin dashboard, kaya ba gamitin ng non-technical na shop owner nang walang training?
+Multiple admin accounts ba ang supported, o isa lang per store?
+Mobile-friendly ba ang admin panel, kaya ba i-manage ang store gamit lang ang phone?
+
+MAINTENANCE
+
+Sino/ano ang mag-aalerto kung may bug o downtime, may monitoring system ba?
+Gaano katagal ang typical fix time kung magka-error ang isang client's site?
+
+
+Sa sagot ng mga ito, makikita natin kung saan talaga matibay ang system mo at saan kailangan pang patibayin, lalo na bago mo i-promote ang Premium tier bilang "Shopify-level" na quality.

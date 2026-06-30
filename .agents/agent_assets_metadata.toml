@@ -1,0 +1,13 @@
+uploads = []
+
+[[generated]]
+id = "Z-i72_8UVUvSrEeh2f0aX"
+uri = "file://attached_assets/generated_images/red_violet_special_offer.png"
+type = "image"
+title = "generated_image"
+
+[[outputs]]
+id = "PScfQ3ad2XGJroAk86X1x"
+uri = "file://PRODUCT_VARIANTS_PLAN.md"
+type = "text"
+title = "Product Color Variants — Plan & Criticism"

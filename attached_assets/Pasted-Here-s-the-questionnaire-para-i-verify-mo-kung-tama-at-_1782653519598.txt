@@ -1,0 +1,41 @@
+Here's the questionnaire para i-verify mo kung tama at kumpleto ang ginawa ni Replit sa lahat ng hiniling mo. Paste mo ito pagkatapos nilang sabihing "tapos na."
+
+🔐 PASSWORD HASHING
+
+Anong hashing algorithm ginamit (bcrypt, argon2, atbp.)?
+Na-update ba ang existing admin account/s para gamit na ang hashed password, o bago lang na accounts ang naka-hash?
+Paano nag-verify ang login flow ngayon, gumagamit ba ito ng proper compare function (hindi simpleng ===)?
+May minimum password requirements ba (length, complexity) bago i-hash?
+Pwede mo ba akong patunayan na hindi na readable as plain text ang password kung titingnan ko sa database directly?
+
+📦 RACE CONDITION / OVERSELL PROTECTION
+
+Anong specific na method ginamit para ayusin ang race condition (SELECT FOR UPDATE, optimistic locking, atomic SQL update, atbp.)?
+Kung dalawang customers ang sabay-sabay na mag-checkout ng huling 1 stock, ano talaga ang mangyayari ngayon, isa lang ba talaga makakabili at ang isa ay makakakita ng "out of stock" error?
+Na-test ba ito gamit ng simulated concurrent requests, o theoretical pa lang ang fix?
+Paano hinahandle ang variant-level stock (halimbawa parehong product pero iba't ibang kulay), kasama ba ito sa parehong lock mechanism?
+
+📡 AUTOMATED MONITORING
+
+Anong monitoring tool o service ginamit (UptimeRobot, Better Stack, Sentry, atbp.)?
+Paano ako mararatay/maalerto kung magka-downtime ang isang client site, email, SMS, o Discord/Slack notification?
+Gaano kadalas/mabilis ang pag-check ng monitoring system (every minute, every 5 minutes)?
+May error tracking ba para sa application errors (hindi lang downtime), tulad ng pag-crash ng checkout process?
+Libre ba ang monitoring tool na ginamit, o may monthly cost na idadagdag sa overall expenses ko?
+
+💳 PAYMONGO INTEGRATION
+
+Kumpirmahin: kung magbigay ako ng PayMongo public key at secret key ngayon bilang environment variables, gumagana na agad ang online payment sa checkout, walang dagdag coding?
+Anong payment methods ang covered (GCash, Maya, card, atbp.)?
+Paano gumagana ang webhook, automatic bang nagbabago ang order status mula "pending" patungong "paid" sa sandaling magbayad ang customer?
+Na-test ba ito gamit ng PayMongo test/sandbox keys, may proof o screenshot ba ng successful test transaction?
+Ano ang nangyayari kung magbayad ang customer pero hindi natanggap ng system ang webhook confirmation (dahil sa connection issue), may paraan ba para ma-verify manually ang payment status?
+Saan ko ilalagay ang API keys ng bawat bagong client (paano ito naka-configure per deployment)?
+
+👥 CRM
+
+Kumpirmahin: gumagana na ba ang automatic deduplication sa customers table, ibig sabihin kung mag-order ulit ang parehong email, na-update lang ang existing record, hindi gumawa ng duplicate?
+Tama ba ang nakikita kong total orders at total amount spent per customer, tumutugma ba ito sa totoong datos sa orders table?
+Gumagana ba ang "select specific customers" at "select all" sa customer list view?
+Gumagana ba ang CSV export, at tama ba ang format (may email column at name column na compatible kapag i-import sa Resend Audience)?
+Kung mag-export ako ngayon ng CSV, pwede mo bang ipakita ang sample output (kahit fake/dummy data) para makita ko kung tama ang format bago ko subukan?
