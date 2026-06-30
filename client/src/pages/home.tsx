@@ -778,7 +778,7 @@ export default function Home() {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative w-full h-[80dvh] overflow-hidden">
+      <section className="relative w-full h-[80dvh] md:h-[90dvh] overflow-hidden">
         {/* Background image */}
         <img
           src={heroImage}
