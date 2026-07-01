@@ -554,13 +554,13 @@ export default function Home() {
           )}
         </div>
         <div className="flex items-center gap-0.5 mt-0.5">
-          <Flower2 className={`h-2.5 w-2.5 shrink-0 ${activeCategoryId === "all" ? "text-primary" : "text-muted-foreground/70"}`} />
+          <img src={FLOWER_BOUQUET_ICON} alt="" className="h-2.5 w-2.5 shrink-0 object-contain" />
           <span className={`text-[10px] font-medium leading-none truncate ${activeCategoryId === "all" ? "text-primary font-semibold" : "text-muted-foreground"}`}>All</span>
         </div>
       </button>
 
       {categories?.map((category) => {
-        const imgSrc = category.imageUrl || categoryImageMap[category.id] || getCategoryIcon(category.name) || null;
+        const imgSrc = category.imageUrl || categoryImageMap[category.id] || null;
         const isActive = activeCategoryId === category.id;
         return (
           <button
@@ -583,7 +583,7 @@ export default function Home() {
               )}
             </div>
             <div className="flex items-center gap-0.5 mt-0.5 max-w-[78px]">
-              <Flower2 className={`h-2.5 w-2.5 shrink-0 ${isActive ? "text-primary" : "text-muted-foreground/70"}`} />
+              <img src={getCategoryIcon(category.name) || FLOWER_BOUQUET_ICON} alt="" className="h-2.5 w-2.5 shrink-0 object-contain" />
               <span className={`text-[10px] font-medium leading-none truncate ${isActive ? "text-primary font-semibold" : "text-muted-foreground"}`}>{category.name}</span>
             </div>
           </button>
@@ -912,8 +912,8 @@ export default function Home() {
                   className={`flex flex-col items-center gap-1 py-2 px-0.5 rounded-xl transition-colors ${activeCategoryId === "all" ? "bg-primary/10" : ""}`}
                 >
                   <div className={`w-10 h-10 rounded-full overflow-hidden flex items-center justify-center ${activeCategoryId === "all" ? "ring-2 ring-primary ring-offset-1 shadow-sm shadow-primary/20" : "ring-1 ring-border"}`}>
-                    {allCategoryImageUrl ? (
-                      <img src={allCategoryImageUrl} alt="All" className="w-full h-full object-cover" />
+                    {(allCategoryImageUrl || FLOWER_BOUQUET_ICON) ? (
+                      <img src={allCategoryImageUrl || FLOWER_BOUQUET_ICON} alt="All" className="w-full h-full object-cover" />
                     ) : (
                       <div className={`w-full h-full flex items-center justify-center ${activeCategoryId === "all" ? "bg-primary" : "bg-primary/10"}`}>
                         <Flower2 className={`h-4 w-4 ${activeCategoryId === "all" ? "text-white" : "text-primary/60"}`} />
@@ -1336,8 +1336,8 @@ export default function Home() {
                   className={`flex flex-col items-center gap-1.5 py-2.5 px-1 rounded-xl transition-colors ${activeCategoryId === "all" ? "bg-primary/10" : "hover:bg-muted/50"}`}
                 >
                   <div className={`w-12 h-12 rounded-full overflow-hidden flex items-center justify-center ${activeCategoryId === "all" ? "ring-2 ring-primary ring-offset-1 shadow-sm shadow-primary/20" : "ring-1 ring-border"}`}>
-                    {allCategoryImageUrl ? (
-                      <img src={allCategoryImageUrl} alt="All" className="w-full h-full object-cover" />
+                    {(allCategoryImageUrl || FLOWER_BOUQUET_ICON) ? (
+                      <img src={allCategoryImageUrl || FLOWER_BOUQUET_ICON} alt="All" className="w-full h-full object-cover" />
                     ) : (
                       <div className={`w-full h-full flex items-center justify-center ${activeCategoryId === "all" ? "bg-primary" : "bg-primary/10"}`}>
                         <Flower2 className={`h-5 w-5 ${activeCategoryId === "all" ? "text-white" : "text-primary/60"}`} />
