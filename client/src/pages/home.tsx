@@ -733,7 +733,7 @@ export default function Home() {
         "fixed left-0 right-0 z-40 transition-all duration-300 top-[34px]",
         desktopScrolled ? "md:hidden" : "",
         hasScrolled
-          ? "bg-[#3d4f3d] shadow-sm py-2"
+          ? "bg-[#4a5e3a] shadow-sm py-2"
           : "bg-transparent py-3"
       )}>
         <div className="max-w-screen-2xl mx-auto px-4 md:px-6">
@@ -1103,7 +1103,7 @@ export default function Home() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -60, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed top-[34px] left-0 right-0 z-40 bg-[#3d4f3d] shadow-sm px-6 xl:px-10"
+              className="fixed top-[34px] left-0 right-0 z-40 bg-[#4a5e3a] shadow-sm px-6 xl:px-10"
             >
               <div className="flex items-center gap-4 h-16 max-w-screen-2xl mx-auto">
                 <BrandLogo className="h-10 w-auto shrink-0" forceWhite data-testid="img-desktop-sticky-logo" />
