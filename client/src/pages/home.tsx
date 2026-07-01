@@ -948,7 +948,7 @@ export default function Home() {
                   <button className="text-[11px] font-semibold text-primary" onClick={() => { setSelectedBadges(["Best Seller"]); document.getElementById("all-products")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>See All</button>
                 </div>
                 {allGroupedLoading ? (
-                  <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-1">
+                  <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-2">
                     {Array.from({ length: 4 }).map((_, i) => (
                       <div key={i} className="shrink-0 w-[118px] flex flex-col gap-2">
                         <Skeleton className="w-full aspect-square rounded-xl" />
@@ -958,13 +958,14 @@ export default function Home() {
                     ))}
                   </div>
                 ) : bestSellerProducts.length > 0 ? (
-                  <ScrollRow>
+                  <div className="flex overflow-x-auto gap-3 pb-2 snap-x hide-scrollbar">
                     {bestSellerProducts.map(product => (
                       <div key={product.id} className="snap-start shrink-0 w-[118px]">
                         <ProductCard product={product} />
                       </div>
                     ))}
-                  </ScrollRow>
+                    <div className="shrink-0 w-4" />
+                  </div>
                 ) : null}
               </section>
 
