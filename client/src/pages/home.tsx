@@ -490,11 +490,11 @@ export default function Home() {
   );
 
   const categoryCircles = categoriesLoading ? (
-    <div className="flex overflow-x-auto hide-scrollbar gap-4 py-1.5 px-2.5 pb-2">
+    <div className="flex overflow-x-auto hide-scrollbar gap-3 py-1 px-4 pb-2">
       {Array.from({ length: 5 }).map((_, i) => (
         <div key={i} className="shrink-0 flex flex-col items-center gap-1.5">
-          <Skeleton className="w-16 h-16 rounded-full" />
-          <Skeleton className="h-2 w-10 rounded-md" />
+          <Skeleton className="w-[78px] h-[78px] rounded-2xl" />
+          <Skeleton className="h-2 w-12 rounded-md" />
         </div>
       ))}
     </div>
@@ -503,28 +503,33 @@ export default function Home() {
       <div
         ref={categoryScrollRef}
         onScroll={() => setShowScrollHint(false)}
-        className="flex overflow-x-auto hide-scrollbar gap-4 py-1.5 px-2.5 pb-2 snap-x snap-mandatory scroll-pl-2.5"
+        className="flex overflow-x-auto hide-scrollbar gap-2.5 py-1 px-4 pb-3 snap-x snap-mandatory scroll-pl-4"
       >
+      {/* "All" card */}
       <button
         data-testid="category-chip-all"
         onClick={() => setActiveCategoryId("all")}
-        className="snap-start shrink-0 flex flex-col items-center gap-1.5 group"
+        className="snap-start shrink-0 flex flex-col items-center gap-1 group w-[78px]"
       >
-        <div className={`w-16 h-16 rounded-full overflow-hidden transition-all duration-200 ${
+        <div className={`w-[78px] h-[78px] rounded-2xl overflow-hidden transition-all duration-200 shadow-sm ${
           activeCategoryId === "all"
-            ? "ring-2 ring-primary ring-offset-2 shadow-lg shadow-primary/25"
-            : "ring-2 ring-transparent ring-offset-2 group-hover:ring-primary/30"
+            ? "ring-2 ring-primary ring-offset-1"
+            : "ring-1 ring-border/60"
         }`}>
           {allCategoryImageUrl ? (
             <img src={allCategoryImageUrl} alt="All" className="h-full w-full object-cover" />
           ) : (
             <div className={`h-full w-full flex items-center justify-center ${activeCategoryId === "all" ? "bg-primary" : "bg-primary/10"}`}>
-              <Flower2 className={`h-7 w-7 ${activeCategoryId === "all" ? "text-white" : "text-primary/70"}`} />
+              <Flower2 className={`h-8 w-8 ${activeCategoryId === "all" ? "text-white" : "text-primary/70"}`} />
             </div>
           )}
         </div>
-        <span className={`text-[10px] font-medium leading-none text-center ${activeCategoryId === "all" ? "text-primary font-semibold" : "text-muted-foreground"}`}>All</span>
+        <div className="flex items-center gap-0.5 mt-0.5">
+          <Flower2 className={`h-2.5 w-2.5 shrink-0 ${activeCategoryId === "all" ? "text-primary" : "text-muted-foreground/70"}`} />
+          <span className={`text-[10px] font-medium leading-none truncate ${activeCategoryId === "all" ? "text-primary font-semibold" : "text-muted-foreground"}`}>All</span>
+        </div>
       </button>
+
       {categories?.map((category) => {
         const imgSrc = category.imageUrl || categoryImageMap[category.id] || null;
         const isActive = activeCategoryId === category.id;
@@ -533,22 +538,25 @@ export default function Home() {
             key={category.id}
             data-testid={`category-chip-${category.id}`}
             onClick={() => setActiveCategoryId(category.id)}
-            className="snap-start shrink-0 flex flex-col items-center gap-1.5 group"
+            className="snap-start shrink-0 flex flex-col items-center gap-1 group w-[78px]"
           >
-            <div className={`w-16 h-16 rounded-full overflow-hidden transition-all duration-200 ${
+            <div className={`w-[78px] h-[78px] rounded-2xl overflow-hidden transition-all duration-200 shadow-sm ${
               isActive
-                ? "ring-2 ring-primary ring-offset-2 shadow-lg shadow-primary/20"
-                : "ring-2 ring-transparent ring-offset-2 group-hover:ring-primary/30"
+                ? "ring-2 ring-primary ring-offset-1"
+                : "ring-1 ring-border/60 group-hover:ring-primary/30"
             }`}>
               {imgSrc ? (
                 <img src={imgSrc} alt={category.name} className="h-full w-full object-cover" />
               ) : (
                 <div className={`h-full w-full flex items-center justify-center ${isActive ? "bg-primary" : "bg-primary/10"}`}>
-                  <span className={`text-lg font-bold ${isActive ? "text-white" : "text-primary/60"}`}>{category.name.charAt(0).toUpperCase()}</span>
+                  <span className={`text-xl font-bold ${isActive ? "text-white" : "text-primary/60"}`}>{category.name.charAt(0).toUpperCase()}</span>
                 </div>
               )}
             </div>
-            <span className={`text-[10px] font-medium leading-none text-center max-w-[64px] truncate ${isActive ? "text-primary font-semibold" : "text-muted-foreground"}`}>{category.name}</span>
+            <div className="flex items-center gap-0.5 mt-0.5 max-w-[78px]">
+              <Flower2 className={`h-2.5 w-2.5 shrink-0 ${isActive ? "text-primary" : "text-muted-foreground/70"}`} />
+              <span className={`text-[10px] font-medium leading-none truncate ${isActive ? "text-primary font-semibold" : "text-muted-foreground"}`}>{category.name}</span>
+            </div>
           </button>
         );
       })}
@@ -562,16 +570,6 @@ export default function Home() {
             className="pointer-events-none absolute right-0 top-0 bottom-0 flex items-center"
           >
             <div className="w-14 h-full bg-gradient-to-l from-white/95 to-transparent" />
-            <motion.div
-              animate={{ x: [0, 5, 0] }}
-              transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
-              className="absolute right-1.5 bottom-0"
-            >
-              <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="1" y1="7" x2="18" y2="7" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round"/>
-                <path d="M14 2.5 L19 7 L14 11.5" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </svg>
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -622,7 +620,7 @@ export default function Home() {
               {mobileLayout === "scroll" ? (
                 <ScrollRow noNegativeMargin={categoryLayout === "left"}>
                   {section.products.map(product => (
-                    <div key={`${section.key}-${product.id}`} className="snap-start shrink-0 w-[148px] md:w-full">
+                    <div key={`${section.key}-${product.id}`} className="snap-start shrink-0 w-[118px] md:w-full">
                       <ProductCard product={product} />
                     </div>
                   ))}
@@ -667,7 +665,7 @@ export default function Home() {
       {mobileLayout === "scroll" ? (
         <ScrollRow noNegativeMargin={categoryLayout === "left"}>
           {filteredProducts.map((product) => (
-            <div key={product.id} className="snap-start shrink-0 w-[148px] md:w-full">
+            <div key={product.id} className="snap-start shrink-0 w-[118px] md:w-full">
               <ProductCard product={product} />
             </div>
           ))}
@@ -785,7 +783,7 @@ export default function Home() {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative w-full h-[80dvh] md:h-[90dvh] overflow-hidden">
+      <section className="relative w-full h-[52dvh] md:h-[90dvh] overflow-hidden">
         {/* Background image */}
         <img
           src={heroImage}
@@ -878,75 +876,6 @@ export default function Home() {
             {activeFiltersStrip && <div className="mt-1">{activeFiltersStrip}</div>}
           </section>
 
-          {(offersLoading || offerSlides.length > 0) && (
-          <section className="mb-6">
-            <div className="flex items-center justify-between mb-2 px-0.5">
-              <h2 className="text-[15px] font-semibold" data-testid="text-mobile-special-offers">Special Offers</h2>
-              <button className="text-[11px] font-semibold text-primary" data-testid="button-see-all-offers" onClick={() => document.getElementById("recommended-products")?.scrollIntoView({ behavior: "smooth", block: "start" })}>See All</button>
-            </div>
-            {offersLoading ? (
-              <div className="rounded-2xl overflow-hidden shadow-md border border-primary/5 min-h-[112px] grid grid-cols-[1fr_118px]">
-                <div className="p-4 flex flex-col gap-2 justify-center">
-                  <Skeleton className="h-2.5 w-24 rounded-md" />
-                  <Skeleton className="h-4 w-40 rounded-md" />
-                  <Skeleton className="h-4 w-32 rounded-md" />
-                  <Skeleton className="h-7 w-20 rounded-full mt-1" />
-                </div>
-                <Skeleton className="rounded-l-[48px] h-full w-full" />
-              </div>
-            ) : (
-            <>
-            <div
-              className="relative overflow-hidden rounded-2xl bg-white shadow-md border border-primary/5 min-h-[112px]"
-              onMouseEnter={() => { slideHovered.current = true; }}
-              onMouseLeave={() => { slideHovered.current = false; }}
-              data-testid="carousel-mobile-offers"
-            >
-              <AnimatePresence mode="wait">
-                {offerSlides.map((slide, i) => i === activeSlide && (
-                  <motion.div
-                    key={slide.id}
-                    initial={{ opacity: 0, x: 24 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -24 }}
-                    transition={{ duration: 0.28, ease: "easeInOut" }}
-                    className="grid grid-cols-[1fr_118px] items-stretch"
-                  >
-                    <div className={`absolute -right-4 -top-6 h-36 w-36 rounded-full ${slide.styles.decorBg}`} />
-                    <div className="p-4 pr-1 relative">
-                      <p className={`text-[9px] mb-1 font-medium ${slide.styles.labelColor}`} data-testid="text-mobile-todays-offer">{slide.label}</p>
-                      <h3 className="text-base font-bold leading-tight mb-1 font-sans" data-testid="text-mobile-offer-title">{slide.title}</h3>
-                      <div className="flex items-end gap-1 mb-2">
-                        <span className="text-xs text-muted-foreground">Up to</span>
-                        <span className="text-2xl font-black leading-none text-foreground">{Number(slide.discountPercentage).toLocaleString()}</span>
-                        <span className={`text-sm font-bold leading-none ${slide.styles.accentColor}`}>% Off</span>
-                      </div>
-                      <Button size="sm" onClick={() => handleOfferAction(slide)} className="h-7 rounded-full bg-primary hover:bg-primary/90 px-4 text-[10px] font-bold" data-testid="button-mobile-order-now">
-                        {slide.buttonText}
-                      </Button>
-                    </div>
-                    <div className="relative overflow-hidden rounded-l-[48px]">
-                      <img src={slide.imageUrl} alt={slide.label} className="h-full w-full object-cover" data-testid="img-mobile-special-offer" />
-                    </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </div>
-            <div className="mt-3 flex justify-center gap-1.5">
-              {offerSlides.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveSlide(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${i === activeSlide ? "w-5 bg-primary" : "w-2 bg-muted"}`}
-                  data-testid={`button-slide-dot-${i}`}
-                />
-              ))}
-            </div>
-            </>
-            )}
-          </section>
-          )}
-
           {categoryLayout === "left" ? (
             <div className="flex gap-0 -mx-4 mb-12" id="recommended-products">
               {/* Left category sidebar */}
@@ -1021,7 +950,7 @@ export default function Home() {
                 {allGroupedLoading ? (
                   <div className="flex gap-3 px-4 overflow-x-auto hide-scrollbar pb-1">
                     {Array.from({ length: 4 }).map((_, i) => (
-                      <div key={i} className="shrink-0 w-[148px] flex flex-col gap-2">
+                      <div key={i} className="shrink-0 w-[118px] flex flex-col gap-2">
                         <Skeleton className="w-full aspect-square rounded-xl" />
                         <Skeleton className="h-3 w-3/4 rounded-md" />
                         <Skeleton className="h-3 w-1/2 rounded-md" />
@@ -1031,7 +960,7 @@ export default function Home() {
                 ) : bestSellerProducts.length > 0 ? (
                   <ScrollRow>
                     {bestSellerProducts.map(product => (
-                      <div key={product.id} className="snap-start shrink-0 w-[148px]">
+                      <div key={product.id} className="snap-start shrink-0 w-[118px]">
                         <ProductCard product={product} />
                       </div>
                     ))}
@@ -1058,6 +987,76 @@ export default function Home() {
                   ))}
                 </div>
               </section>
+
+              {/* Special Offers */}
+              {(offersLoading || offerSlides.length > 0) && (
+              <section className="mb-6">
+                <div className="flex items-center justify-between mb-2 px-0.5">
+                  <h2 className="text-[15px] font-semibold" data-testid="text-mobile-special-offers">Special Offers</h2>
+                  <button className="text-[11px] font-semibold text-primary" data-testid="button-see-all-offers" onClick={() => document.getElementById("all-products")?.scrollIntoView({ behavior: "smooth", block: "start" })}>See All</button>
+                </div>
+                {offersLoading ? (
+                  <div className="rounded-2xl overflow-hidden shadow-md border border-primary/5 min-h-[112px] grid grid-cols-[1fr_118px]">
+                    <div className="p-4 flex flex-col gap-2 justify-center">
+                      <Skeleton className="h-2.5 w-24 rounded-md" />
+                      <Skeleton className="h-4 w-40 rounded-md" />
+                      <Skeleton className="h-4 w-32 rounded-md" />
+                      <Skeleton className="h-7 w-20 rounded-full mt-1" />
+                    </div>
+                    <Skeleton className="rounded-l-[48px] h-full w-full" />
+                  </div>
+                ) : (
+                <>
+                <div
+                  className="relative overflow-hidden rounded-2xl bg-white shadow-md border border-primary/5 min-h-[112px]"
+                  onMouseEnter={() => { slideHovered.current = true; }}
+                  onMouseLeave={() => { slideHovered.current = false; }}
+                  data-testid="carousel-mobile-offers"
+                >
+                  <AnimatePresence mode="wait">
+                    {offerSlides.map((slide, i) => i === activeSlide && (
+                      <motion.div
+                        key={slide.id}
+                        initial={{ opacity: 0, x: 24 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -24 }}
+                        transition={{ duration: 0.28, ease: "easeInOut" }}
+                        className="grid grid-cols-[1fr_118px] items-stretch"
+                      >
+                        <div className={`absolute -right-4 -top-6 h-36 w-36 rounded-full ${slide.styles.decorBg}`} />
+                        <div className="p-4 pr-1 relative">
+                          <p className={`text-[9px] mb-1 font-medium ${slide.styles.labelColor}`} data-testid="text-mobile-todays-offer">{slide.label}</p>
+                          <h3 className="text-base font-bold leading-tight mb-1 font-sans" data-testid="text-mobile-offer-title">{slide.title}</h3>
+                          <div className="flex items-end gap-1 mb-2">
+                            <span className="text-xs text-muted-foreground">Up to</span>
+                            <span className="text-2xl font-black leading-none text-foreground">{Number(slide.discountPercentage).toLocaleString()}</span>
+                            <span className={`text-sm font-bold leading-none ${slide.styles.accentColor}`}>% Off</span>
+                          </div>
+                          <Button size="sm" onClick={() => handleOfferAction(slide)} className="h-7 rounded-full bg-primary hover:bg-primary/90 px-4 text-[10px] font-bold" data-testid="button-mobile-order-now">
+                            {slide.buttonText}
+                          </Button>
+                        </div>
+                        <div className="relative overflow-hidden rounded-l-[48px]">
+                          <img src={slide.imageUrl} alt={slide.label} className="h-full w-full object-cover" data-testid="img-mobile-special-offer" />
+                        </div>
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
+                </div>
+                <div className="mt-3 flex justify-center gap-1.5">
+                  {offerSlides.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveSlide(i)}
+                      className={`h-2 rounded-full transition-all duration-300 ${i === activeSlide ? "w-5 bg-primary" : "w-2 bg-muted"}`}
+                      data-testid={`button-slide-dot-${i}`}
+                    />
+                  ))}
+                </div>
+                </>
+                )}
+              </section>
+              )}
 
               {/* All products */}
               <section className="mb-12" id="all-products">{isAllView ? groupedView : productGrid}</section>
