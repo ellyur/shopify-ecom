@@ -326,6 +326,13 @@ export default function Home() {
       .slice(0, 10);
   }, [allGroupedProducts, activeCategoryId]);
 
+  useEffect(() => {
+    if (activeCategoryId === "all" || allGroupedLoading) return;
+    if (bestSellerProducts.length === 0) {
+      document.getElementById("all-products")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [bestSellerProducts, activeCategoryId, allGroupedLoading]);
+
   const toggleBadge = (badge: string) => {
     setSelectedBadges(prev => prev.includes(badge) ? prev.filter(b => b !== badge) : [...prev, badge]);
   };
