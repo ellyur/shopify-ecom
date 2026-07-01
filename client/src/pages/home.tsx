@@ -117,12 +117,25 @@ function ScrollRow({ children, noNegativeMargin }: { children: React.ReactNode; 
   );
 }
 
+const FLOWER_BOUQUET_ICON = "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782894903/flower-bouquet_kynp1c.png";
+const BOUQUET_ICON = "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782895040/bouquet_p0hcgt.png";
+
 const CATEGORY_ICON_MAP: Record<string, string> = {
-  "all": "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782894903/flower-bouquet_kynp1c.png",
+  "all": FLOWER_BOUQUET_ICON,
   "funeral": "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782894997/wreath_xcpgn3.png",
   "stuff toy": "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782894903/plush-toy_vidnhe.png",
-  "fresh": "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782895040/bouquet_p0hcgt.png",
-  "premium": "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782895040/bouquet_p0hcgt.png",
+  "plush": "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782894903/plush-toy_vidnhe.png",
+  "fresh": BOUQUET_ICON,
+  "premium": BOUQUET_ICON,
+  "bouquet": FLOWER_BOUQUET_ICON,
+  "flower": FLOWER_BOUQUET_ICON,
+  "rose": FLOWER_BOUQUET_ICON,
+  "tulip": FLOWER_BOUQUET_ICON,
+  "carnation": FLOWER_BOUQUET_ICON,
+  "lily": FLOWER_BOUQUET_ICON,
+  "sunflower": FLOWER_BOUQUET_ICON,
+  "orchid": FLOWER_BOUQUET_ICON,
+  "floral": FLOWER_BOUQUET_ICON,
 };
 
 function getCategoryIcon(name: string): string | null {
@@ -986,16 +999,19 @@ export default function Home() {
               <section className="mb-5 -mx-4">
                 <div className="grid grid-cols-4 bg-muted/30 border-y border-border/40 py-4 px-1">
                   {([
-                    { icon: Flower2, label: "Fresh &\nPremium", sub: "" },
-                    { icon: Truck, label: "Same-Day\nDelivery", sub: "" },
-                    { icon: ShieldCheck, label: "Secure\nPayment", sub: "" },
-                    { icon: Headphones, label: "Customer\nCare", sub: "" },
-                  ] as const).map(({ icon: Icon, label, sub }) => (
-                    <div key={label} className="flex flex-col items-center text-center px-0.5">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mb-1.5">
-                        <Icon className="h-3.5 w-3.5 text-primary" />
+                    { imgSrc: BOUQUET_ICON, label: "Fresh &\nPremium" },
+                    { icon: Truck, label: "Same-Day\nDelivery" },
+                    { icon: ShieldCheck, label: "Secure\nPayment" },
+                    { icon: Headphones, label: "Customer\nCare" },
+                  ] as const).map((item) => (
+                    <div key={item.label} className="flex flex-col items-center text-center px-0.5">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mb-1.5 overflow-hidden">
+                        {'imgSrc' in item
+                          ? <img src={item.imgSrc} alt={item.label} className="h-full w-full object-cover" />
+                          : <item.icon className="h-3.5 w-3.5 text-primary" />
+                        }
                       </div>
-                      <p className="text-[8.5px] font-semibold leading-tight text-foreground whitespace-pre-line">{label}</p>
+                      <p className="text-[8.5px] font-semibold leading-tight text-foreground whitespace-pre-line">{item.label}</p>
                     </div>
                   ))}
                 </div>
