@@ -31,6 +31,9 @@ import AdminPaymentMethods from "@/pages/admin/payment-methods";
 import AdminCustomers from "@/pages/admin/customers";
 import PaymentReturn from "@/pages/payment-return";
 import NotFound from "@/pages/not-found";
+import About from "@/pages/about";
+import Contact from "@/pages/contact";
+import FAQs from "@/pages/faqs";
 
 function BrandThemeLoader() {
   const { data: settings } = usePublicSettings();
@@ -85,6 +88,9 @@ function Router() {
       <Route path="/product/:slug" component={ProductDetail} />
       <Route path="/checkout" component={Checkout} />
       <Route path="/track" component={OrderTracking} />
+      <Route path="/about" component={About} />
+      <Route path="/contact" component={Contact} />
+      <Route path="/faqs" component={FAQs} />
       <Route path="/payment/success">
         <PaymentReturn mode="success" />
       </Route>

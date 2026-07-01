@@ -23,6 +23,9 @@ export function Navbar() {
   const navLinks = [
     { href: "/", label: "Boutique" },
     { href: "/track", label: "Track Order" },
+    { href: "/about", label: "About Us" },
+    { href: "/contact", label: "Contact Us" },
+    { href: "/faqs", label: "FAQs" },
   ];
 
   return (
