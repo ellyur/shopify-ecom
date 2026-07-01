@@ -338,53 +338,53 @@ export function ProductCard({ product }: ProductCardProps) {
 
             {/* ── Info area ── */}
             <CardFooter className="flex flex-col items-start px-2 md:px-3 pt-2 pb-3 bg-transparent gap-0.5">
-              {/* Badge — always reserve space so all cards align */}
-              <div className="flex items-center gap-1 flex-wrap pointer-events-none min-h-[20px] md:min-h-[22px]">
+              {/* Badge — fixed height, no overflow */}
+              <div className="h-5 flex items-center overflow-hidden w-full pointer-events-none">
                 {badge && (
                   <span className={`inline-flex items-center py-0.5 px-2 text-[8px] md:text-[9px] uppercase tracking-widest font-bold rounded-full ${badgeStyle}`}>
                     {badge}
                   </span>
                 )}
               </div>
-              {/* Product name */}
+              {/* Product name — fixed 1 line */}
               <h3
-                className="font-sans text-[11px] md:text-sm font-medium leading-snug line-clamp-1 text-foreground group-hover:text-primary transition-colors duration-300 w-full"
+                className="h-5 font-sans text-[11px] md:text-xs font-medium leading-tight truncate text-foreground group-hover:text-primary transition-colors duration-300 w-full"
                 data-testid={`text-product-name-${product.id}`}
               >
                 {product.name}
               </h3>
 
-              {/* Price row — always reserve space for original price */}
-              <div className="flex items-baseline gap-1.5 flex-wrap min-h-[18px]">
+              {/* Price + original price — fixed height, same row */}
+              <div className="h-5 flex items-center gap-1.5 overflow-hidden w-full">
                 <p
-                  className="font-bold text-[12px] md:text-sm text-primary leading-none"
+                  className="font-bold text-[12px] md:text-sm text-primary leading-none shrink-0"
                   data-testid={`text-product-price-mobile-${product.id}`}
                 >
                   ₱{(selectedVariant?.price ? Number(selectedVariant.price) : salePrice).toLocaleString(undefined, { minimumFractionDigits: 2 })}
                 </p>
-                {originalPrice ? (
+                {originalPrice && (
                   <p
-                    className="text-[9px] md:text-xs text-muted-foreground line-through leading-none"
+                    className="text-[9px] md:text-[10px] text-muted-foreground line-through leading-none truncate"
                     data-testid={`text-product-original-price-${product.id}`}
                   >
                     ₱{originalPrice.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                   </p>
-                ) : (
-                  <span className="invisible text-[9px] md:text-xs">₱0.00</span>
                 )}
               </div>
 
-              {/* "You save" row — always reserve space */}
-              <div className="min-h-[20px] md:min-h-[22px] flex items-center">
+              {/* "You save" — fixed height, truncated */}
+              <div className="h-5 flex items-center overflow-hidden w-full">
                 {discountPct > 0 && originalPrice && (
-                  <span className="inline-flex items-center gap-1 py-0.5 px-2 text-[8px] md:text-[9px] font-semibold rounded-full bg-rose-100 text-rose-600">
+                  <span className="inline-flex items-center gap-1 py-0.5 px-2 text-[8px] md:text-[9px] font-semibold rounded-full bg-rose-100 text-rose-600 truncate max-w-full">
                     🏷 You save ₱{(originalPrice - salePrice).toLocaleString(undefined, { minimumFractionDigits: 2 })}
                   </span>
                 )}
               </div>
 
-              {/* Star rating — own row */}
-              <StarRatingWidget productId={product.id} />
+              {/* Star rating — fixed height row */}
+              <div className="h-5 flex items-center overflow-hidden w-full">
+                <StarRatingWidget productId={product.id} />
+              </div>
 
               {/* Color swatches — below image info */}
               {variants.length > 0 && (
