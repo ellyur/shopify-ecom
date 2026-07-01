@@ -117,6 +117,20 @@ function ScrollRow({ children, noNegativeMargin }: { children: React.ReactNode; 
   );
 }
 
+const CATEGORY_ICON_MAP: Record<string, string> = {
+  "all": "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782894903/flower-bouquet_kynp1c.png",
+  "funeral": "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782894997/wreath_xcpgn3.png",
+  "stuff toy": "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782894903/plush-toy_vidnhe.png",
+};
+
+function getCategoryIcon(name: string): string | null {
+  const lower = name.toLowerCase();
+  for (const [key, url] of Object.entries(CATEGORY_ICON_MAP)) {
+    if (lower.includes(key)) return url;
+  }
+  return null;
+}
+
 export default function Home() {
   const { data: categories, isLoading: categoriesLoading } = useCategories();
   const { data: specialOffers, isLoading: offersLoading } = useSpecialOffers();
@@ -516,8 +530,8 @@ export default function Home() {
             ? "ring-2 ring-primary ring-offset-1"
             : "ring-1 ring-border/60"
         }`}>
-          {allCategoryImageUrl ? (
-            <img src={allCategoryImageUrl} alt="All" className="h-full w-full object-cover" />
+          {(allCategoryImageUrl || CATEGORY_ICON_MAP["all"]) ? (
+            <img src={allCategoryImageUrl || CATEGORY_ICON_MAP["all"]} alt="All" className="h-full w-full object-cover" />
           ) : (
             <div className={`h-full w-full flex items-center justify-center ${activeCategoryId === "all" ? "bg-primary" : "bg-primary/10"}`}>
               <Flower2 className={`h-8 w-8 ${activeCategoryId === "all" ? "text-white" : "text-primary/70"}`} />
@@ -531,7 +545,7 @@ export default function Home() {
       </button>
 
       {categories?.map((category) => {
-        const imgSrc = category.imageUrl || categoryImageMap[category.id] || null;
+        const imgSrc = category.imageUrl || categoryImageMap[category.id] || getCategoryIcon(category.name) || null;
         const isActive = activeCategoryId === category.id;
         return (
           <button
