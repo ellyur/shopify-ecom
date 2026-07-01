@@ -12,6 +12,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useState, useMemo, useEffect, useRef } from "react";
 import offerImage from "@assets/generated_images/red_violet_special_offer.png";
 import { CartDrawer } from "@/components/cart-drawer";
+import { useCart } from "@/hooks/use-cart";
 import { AnimatePresence, motion } from "framer-motion";
 import { BrandLogo } from "@/components/brand-logo";
 import { StoreFooter } from "@/components/store-footer";
@@ -155,6 +156,8 @@ export default function Home() {
   const allCategoryImageUrl = publicSettings?.find(s => s.key === "all_category_image_url")?.value || "";
   const mobileLayout = publicSettings?.find(s => s.key === "mobile_product_layout")?.value ?? "grid";
   const categoryLayout = publicSettings?.find(s => s.key === "category_layout")?.value ?? "top";
+  const { items: cartItems } = useCart();
+  const cartCount = cartItems.reduce((sum, i) => sum + i.quantity, 0);
   const [, setLocation] = useLocation();
   const [activeCategoryId, setActiveCategoryId] = useState<number | "all">("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -797,8 +800,22 @@ export default function Home() {
             <div className="flex items-center gap-0.5">
               <CartDrawer
                 trigger={
-                  <button aria-label="Open cart" className="p-2 rounded-md transition-colors text-foreground hover:bg-muted/60">
+                  <button aria-label="Open cart" className="relative p-2 rounded-md transition-colors text-foreground hover:bg-muted/60">
                     <ShoppingBag className="h-5 w-5" />
+                    <AnimatePresence>
+                      {cartCount > 0 && (
+                        <motion.span
+                          key={cartCount}
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          exit={{ scale: 0 }}
+                          transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                          className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white"
+                        >
+                          {cartCount}
+                        </motion.span>
+                      )}
+                    </AnimatePresence>
                   </button>
                 }
               />
