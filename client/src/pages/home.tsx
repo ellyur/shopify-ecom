@@ -972,17 +972,16 @@ export default function Home() {
               <section className="mb-5 -mx-4">
                 <div className="grid grid-cols-4 bg-muted/30 border-y border-border/40 py-4 px-1">
                   {([
-                    { icon: Flower2, label: "Fresh &\nPremium", sub: "Handpicked daily" },
-                    { icon: Truck, label: "Same-Day\nDelivery", sub: "Order before 2PM" },
-                    { icon: ShieldCheck, label: "Secure\nPayment", sub: "100% Protected" },
-                    { icon: Headphones, label: "Customer\nCare", sub: "We're here to help" },
+                    { icon: Flower2, label: "Fresh &\nPremium", sub: "" },
+                    { icon: Truck, label: "Same-Day\nDelivery", sub: "" },
+                    { icon: ShieldCheck, label: "Secure\nPayment", sub: "" },
+                    { icon: Headphones, label: "Customer\nCare", sub: "" },
                   ] as const).map(({ icon: Icon, label, sub }) => (
                     <div key={label} className="flex flex-col items-center text-center px-0.5">
                       <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mb-1.5">
                         <Icon className="h-3.5 w-3.5 text-primary" />
                       </div>
                       <p className="text-[8.5px] font-semibold leading-tight text-foreground whitespace-pre-line">{label}</p>
-                      <p className="text-[7.5px] text-muted-foreground leading-tight mt-0.5">{sub}</p>
                     </div>
                   ))}
                 </div>
