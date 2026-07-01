@@ -1134,7 +1134,7 @@ export default function Home() {
           "fixed bottom-0 left-1/2 -translate-x-1/2 z-40 bg-white border-t border-x border-border/70 px-4 pt-2 pb-[max(0.55rem,env(safe-area-inset-bottom))] w-full max-w-[430px] transition-transform duration-300",
           hasScrolled ? "translate-y-0" : "translate-y-full"
         )}>
-          <div className="grid grid-cols-4 gap-1 text-[9px] text-muted-foreground">
+          <div className="grid grid-cols-3 gap-1 text-[9px] text-muted-foreground">
             <Link href="/" className="flex flex-col items-center gap-1 text-primary font-semibold" data-testid="link-bottom-home">
               <HomeIcon className="h-5 w-5 fill-primary/10" />
               <span>Home</span>
@@ -1143,14 +1143,6 @@ export default function Home() {
               <PackageCheck className="h-5 w-5" />
               <span>Track</span>
             </Link>
-            <CartDrawer
-              trigger={
-                <button className="flex flex-col items-center gap-1" data-testid="button-bottom-cart">
-                  <ShoppingBag className="h-5 w-5" />
-                  <span>Cart</span>
-                </button>
-              }
-            />
             <button
               onClick={() => setShowFilter(v => !v)}
               className={`flex flex-col items-center gap-1 relative ${showFilter ? "text-primary font-semibold" : ""}`}
