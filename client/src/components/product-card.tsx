@@ -312,6 +312,15 @@ export function ProductCard({ product }: ProductCardProps) {
                 </div>
               )}
 
+              {/* Discount badge — top right of image */}
+              {discountPct > 0 && (
+                <div className="absolute top-2 right-2 z-20 pointer-events-none">
+                  <span className="inline-flex items-center py-0.5 px-2 text-[9px] font-black rounded-full bg-red-500 text-white shadow-sm">
+                    -{discountPct}%
+                  </span>
+                </div>
+              )}
+
               {/* Bottom row: Add to cart (right only) */}
               <div className="absolute bottom-2 md:bottom-3 right-2 md:right-3 z-20 pointer-events-none">
                 {/* Add to cart */}
@@ -329,19 +338,12 @@ export function ProductCard({ product }: ProductCardProps) {
 
             {/* ── Info area ── */}
             <CardFooter className="flex flex-col items-start px-0.5 md:px-1 pt-0 pb-2 bg-transparent gap-0.5 mt-auto">
-              {/* Badges — shown below image so they never cover it */}
-              {(badge || discountPct > 0) && (
+              {/* Badge — shown below image */}
+              {badge && (
                 <div className="flex items-center gap-1 flex-wrap pointer-events-none">
-                  {badge && (
-                    <span className={`inline-flex items-center py-0.5 px-2 text-[8px] md:text-[9px] uppercase tracking-widest font-bold rounded-full ${badgeStyle}`}>
-                      {badge}
-                    </span>
-                  )}
-                  {discountPct > 0 && (
-                    <span className="inline-flex items-center py-0.5 px-2 text-[8px] md:text-[9px] font-black rounded-full bg-red-500 text-white">
-                      -{discountPct}%
-                    </span>
-                  )}
+                  <span className={`inline-flex items-center py-0.5 px-2 text-[8px] md:text-[9px] uppercase tracking-widest font-bold rounded-full ${badgeStyle}`}>
+                    {badge}
+                  </span>
                 </div>
               )}
               {/* Product name */}
