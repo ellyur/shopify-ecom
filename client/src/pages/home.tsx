@@ -809,12 +809,12 @@ export default function Home() {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative w-full h-[52dvh] md:h-[90dvh] overflow-hidden mt-[98px] md:mt-[98px]">
+      <section className="relative w-full h-[52dvh] md:h-[calc(100dvh-98px)] overflow-hidden mt-[98px] md:mt-[98px] md:bg-stone-900">
         {/* Background image */}
         <img
           src={heroImage}
           alt="Fresh floral arrangements"
-          className="absolute inset-0 w-full h-full object-cover object-top"
+          className="absolute inset-0 w-full h-full object-cover object-top md:object-contain md:object-center"
         />
 
         {/* ── MOBILE overlays (unchanged) ── */}
