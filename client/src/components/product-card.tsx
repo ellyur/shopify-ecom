@@ -337,7 +337,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </CardContent>
 
             {/* ── Info area ── */}
-            <CardFooter className="flex flex-col items-start px-2 md:px-3 pt-2 pb-3 bg-transparent gap-0.5 mt-auto">
+            <CardFooter className="flex flex-col items-start px-2 md:px-3 pt-2 pb-3 bg-transparent gap-0.5">
               {/* Badge — always reserve space so all cards align */}
               <div className="flex items-center gap-1 flex-wrap pointer-events-none min-h-[20px] md:min-h-[22px]">
                 {badge && (
