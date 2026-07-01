@@ -942,13 +942,13 @@ export default function Home() {
               </section>
 
               {/* Best Sellers */}
-              <section className="mb-5 -mx-4">
-                <div className="flex items-center justify-between mb-3 px-4">
+              <section className="mb-5">
+                <div className="flex items-center justify-between mb-3">
                   <h2 className="text-[15px] font-semibold">Best Sellers</h2>
                   <button className="text-[11px] font-semibold text-primary" onClick={() => { setSelectedBadges(["Best Seller"]); document.getElementById("all-products")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>See All</button>
                 </div>
                 {allGroupedLoading ? (
-                  <div className="flex gap-3 px-4 overflow-x-auto hide-scrollbar pb-1">
+                  <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-1">
                     {Array.from({ length: 4 }).map((_, i) => (
                       <div key={i} className="shrink-0 w-[118px] flex flex-col gap-2">
                         <Skeleton className="w-full aspect-square rounded-xl" />
@@ -958,7 +958,7 @@ export default function Home() {
                     ))}
                   </div>
                 ) : bestSellerProducts.length > 0 ? (
-                  <ScrollRow noNegativeMargin>
+                  <ScrollRow>
                     {bestSellerProducts.map(product => (
                       <div key={product.id} className="snap-start shrink-0 w-[118px]">
                         <ProductCard product={product} />
