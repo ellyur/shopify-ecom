@@ -763,10 +763,7 @@ export default function Home() {
       </div>
 
       {/* ── Hero Navbar ── */}
-      <nav className={cn(
-        "fixed left-0 right-0 z-40 transition-all duration-300 top-[34px] bg-white border-b border-border/30 shadow-sm py-2",
-        desktopScrolled ? "md:hidden" : "",
-      )}>
+      <nav className="fixed left-0 right-0 z-40 transition-all duration-300 top-[34px] bg-white border-b border-border/30 shadow-sm py-2">
         <div className="max-w-screen-2xl mx-auto px-4 md:px-6">
           <div className="relative flex items-center justify-between h-12">
             {/* Hamburger */}
@@ -1169,58 +1166,6 @@ export default function Home() {
         </nav>
       </div>
       <div className="hidden md:block min-h-screen pb-16">
-        <AnimatePresence>
-          {desktopScrolled && (
-            <motion.header
-              initial={{ y: -60, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -60, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed top-[34px] left-0 right-0 z-40 bg-[#4a5e3a] shadow-sm px-6 xl:px-10"
-            >
-              <div className="flex items-center gap-4 h-16 max-w-screen-2xl mx-auto">
-                <BrandLogo className="h-10 w-auto shrink-0" data-testid="img-desktop-sticky-logo" />
-                <div className="relative flex-1 max-w-lg">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/60" />
-                  <input
-                    type="text"
-                    placeholder="Search bouquets..."
-                    value={searchQuery}
-                    onChange={e => setSearchQuery(e.target.value)}
-                    className="w-full pl-9 pr-4 py-2 text-sm rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30"
-                    data-testid="input-sticky-search"
-                  />
-                </div>
-                <div className="flex items-center gap-2 ml-auto">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setShowFilter(v => !v)}
-                    className={`h-10 w-10 rounded-xl relative text-white hover:bg-white/10 ${showFilter ? "bg-white/20" : ""}`}
-                    data-testid="button-sticky-filter"
-                  >
-                    <SlidersHorizontal className="h-4 w-4" />
-                    {activeFilterCount > 0 && (
-                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-white text-[#3d4f3d] text-[9px] flex items-center justify-center font-bold">{activeFilterCount}</span>
-                    )}
-                  </Button>
-                  <Link href="/track">
-                    <Button variant="ghost" size="icon" className="h-10 w-10 rounded-xl text-white hover:bg-white/10" data-testid="button-sticky-track">
-                      <Truck className="h-4 w-4" />
-                    </Button>
-                  </Link>
-                  <CartDrawer
-                    trigger={
-                      <Button variant="ghost" size="icon" className="h-10 w-10 rounded-xl" data-testid="button-sticky-cart">
-                        <ShoppingBag className="h-4 w-4" />
-                      </Button>
-                    }
-                  />
-                </div>
-              </div>
-            </motion.header>
-          )}
-        </AnimatePresence>
 
         <main className="w-full px-6 xl:px-10 pt-6">
           {/* Search bar for desktop (appears after hero) */}
