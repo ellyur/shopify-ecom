@@ -135,9 +135,11 @@ export function ProductCard({ product }: ProductCardProps) {
   const touchStartXRef = useRef<number | null>(null);
   const didSwipeRef = useRef(false);
 
+  const [isHovered, setIsHovered] = useState(false);
+
   const allImages = useMemo(() => {
     const imgs: { src: string; variantId: number | null }[] = [];
-    (product.images || []).forEach(img => { if (img) imgs.push({ src: img, variantId: null }); });
+    if (product.images?.[0]) imgs.push({ src: product.images[0], variantId: null });
     variants.forEach(v => { if (v.imageUrl) imgs.push({ src: v.imageUrl, variantId: v.id }); });
     if (imgs.length === 0) imgs.push({ src: "https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=800&auto=format&fit=crop", variantId: null });
     return imgs;
@@ -158,9 +160,14 @@ export function ProductCard({ product }: ProductCardProps) {
 
   const selectedVariant = variants.find((v) => v.id === selectedVariantId) ?? null;
 
-  const displayImage = (isVariantLocked && selectedVariant?.imageUrl)
-    ? selectedVariant.imageUrl
-    : (imageUrls[carouselIndex] ?? fallbackProductImage);
+  const hoverImage = !isVariantLocked && isHovered && product.images?.[1]
+    ? product.images[1]
+    : null;
+
+  const displayImage = hoverImage
+    ?? ((isVariantLocked && selectedVariant?.imageUrl)
+      ? selectedVariant.imageUrl
+      : (imageUrls[carouselIndex] ?? fallbackProductImage));
 
   const salePrice = Number(product.price);
   const discountPct = Number(product.discountPercentage ?? 0);
@@ -243,15 +250,12 @@ export function ProductCard({ product }: ProductCardProps) {
           data-testid={`card-product-${product.id}`}
           onMouseEnter={() => {
             setIsPaused(true);
-            if (!isVariantLocked && allImages.length > 1) {
-              setCarouselIndex(1);
-            }
+            setIsHovered(true);
           }}
           onMouseLeave={() => {
             setIsPaused(false);
-            if (!isVariantLocked) {
-              setCarouselIndex(0);
-            }
+            setIsHovered(false);
+            if (!isVariantLocked) setCarouselIndex(0);
           }}
         >
           <Card className="border border-border/40 bg-white shadow-sm overflow-hidden rounded-2xl h-full flex flex-col group">
@@ -272,7 +276,7 @@ export function ProductCard({ product }: ProductCardProps) {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="h-full w-full object-cover absolute inset-0 group-hover:scale-105 transition-transform duration-500"
+                  className="h-full w-full object-cover absolute inset-0"
                   data-testid={`img-product-${product.id}`}
                   onError={(event) => {
                     event.currentTarget.src = fallbackProductImage;
