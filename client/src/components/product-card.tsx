@@ -348,7 +348,7 @@ export function ProductCard({ product }: ProductCardProps) {
               </div>
               {/* Product name */}
               <h3
-                className="font-sans text-[11px] md:text-sm font-medium leading-snug line-clamp-2 text-foreground group-hover:text-primary transition-colors duration-300 w-full"
+                className="font-sans text-[11px] md:text-sm font-medium leading-snug line-clamp-1 text-foreground group-hover:text-primary transition-colors duration-300 w-full"
                 data-testid={`text-product-name-${product.id}`}
               >
                 {product.name}
