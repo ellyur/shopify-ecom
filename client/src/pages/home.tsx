@@ -733,7 +733,7 @@ export default function Home() {
         "fixed left-0 right-0 z-40 transition-all duration-300 top-[34px]",
         desktopScrolled ? "md:hidden" : "",
         hasScrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-border/50 shadow-sm py-2"
+          ? "bg-[#3d4f3d] shadow-sm py-2"
           : "bg-transparent py-3"
       )}>
         <div className="max-w-screen-2xl mx-auto px-4 md:px-6">
@@ -741,7 +741,7 @@ export default function Home() {
             {/* Hamburger */}
             <Sheet open={heroNavOpen} onOpenChange={setHeroNavOpen}>
               <SheetTrigger asChild>
-                <button aria-label="Open menu" className={cn("p-2 rounded-md transition-colors", desktopScrolled ? "text-foreground hover:bg-muted/50" : "text-white hover:bg-white/10")}>
+                <button aria-label="Open menu" className="p-2 rounded-md transition-colors text-white hover:bg-white/10">
                   <Menu className="h-6 w-6" />
                 </button>
               </SheetTrigger>
@@ -760,14 +760,14 @@ export default function Home() {
 
             {/* Center logo */}
             <Link href="/" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <BrandLogo className="h-10 md:h-12 w-auto" showFallbackText forceWhite={!desktopScrolled} />
+              <BrandLogo className="h-10 md:h-12 w-auto" showFallbackText forceWhite />
             </Link>
 
             {/* Right: cart */}
             <div className="flex items-center gap-0.5">
               <CartDrawer
                 trigger={
-                  <button aria-label="Open cart" className={cn("p-2 rounded-md transition-colors", desktopScrolled ? "text-foreground hover:bg-muted/50" : "text-white hover:bg-white/10")}>
+                  <button aria-label="Open cart" className="p-2 rounded-md transition-colors text-white hover:bg-white/10">
                     <ShoppingBag className="h-5 w-5" />
                   </button>
                 }
@@ -1103,18 +1103,18 @@ export default function Home() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -60, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed top-[34px] left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-border/50 shadow-sm px-6 xl:px-10"
+              className="fixed top-[34px] left-0 right-0 z-40 bg-[#3d4f3d] shadow-sm px-6 xl:px-10"
             >
               <div className="flex items-center gap-4 h-16 max-w-screen-2xl mx-auto">
-                <BrandLogo className="h-10 w-auto shrink-0" data-testid="img-desktop-sticky-logo" />
+                <BrandLogo className="h-10 w-auto shrink-0" forceWhite data-testid="img-desktop-sticky-logo" />
                 <div className="relative flex-1 max-w-lg">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/60" />
                   <input
                     type="text"
                     placeholder="Search bouquets..."
                     value={searchQuery}
                     onChange={e => setSearchQuery(e.target.value)}
-                    className="w-full pl-9 pr-4 py-2 text-sm rounded-xl border border-border/60 bg-muted/30 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    className="w-full pl-9 pr-4 py-2 text-sm rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30"
                     data-testid="input-sticky-search"
                   />
                 </div>
@@ -1123,16 +1123,16 @@ export default function Home() {
                     variant="ghost"
                     size="icon"
                     onClick={() => setShowFilter(v => !v)}
-                    className={`h-10 w-10 rounded-xl relative ${showFilter ? "bg-primary text-white hover:bg-primary/90" : ""}`}
+                    className={`h-10 w-10 rounded-xl relative text-white hover:bg-white/10 ${showFilter ? "bg-white/20" : ""}`}
                     data-testid="button-sticky-filter"
                   >
                     <SlidersHorizontal className="h-4 w-4" />
                     {activeFilterCount > 0 && (
-                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-primary text-white text-[9px] flex items-center justify-center font-bold">{activeFilterCount}</span>
+                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-white text-[#3d4f3d] text-[9px] flex items-center justify-center font-bold">{activeFilterCount}</span>
                     )}
                   </Button>
                   <Link href="/track">
-                    <Button variant="ghost" size="icon" className="h-10 w-10 rounded-xl" data-testid="button-sticky-track">
+                    <Button variant="ghost" size="icon" className="h-10 w-10 rounded-xl text-white hover:bg-white/10" data-testid="button-sticky-track">
                       <Truck className="h-4 w-4" />
                     </Button>
                   </Link>
