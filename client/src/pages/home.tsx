@@ -445,7 +445,46 @@ export default function Home() {
       </div>
 
       <div className="space-y-2">
+        <p className="text-[10px] uppercase tracking-widest font-semibold text-muted-foreground">Sort By</p>
+        <div className="flex flex-wrap gap-2">
+          {([
+            { label: "Price: Low → High", value: "price-asc" as const },
+            { label: "Price: High → Low", value: "price-desc" as const },
+            { label: "Newest", value: "newest" as const },
+          ]).map(opt => (
+            <button
+              key={opt.value}
+              onClick={() => setSortBy(sortBy === opt.value ? "default" : opt.value)}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-150 ${
+                sortBy === opt.value
+                  ? "bg-primary text-white border-primary shadow-sm"
+                  : "bg-white text-foreground border-border hover:border-primary/40"
+              }`}
+            >{opt.label}</button>
+          ))}
+        </div>
+      </div>
+
+      <div className="space-y-2">
         <p className="text-[10px] uppercase tracking-widest font-semibold text-muted-foreground">Price Range (₱)</p>
+        <div className="flex gap-2 flex-wrap mb-2">
+          {([
+            { label: "Under ₱500", min: "", max: "500" },
+            { label: "₱500 – ₱1,000", min: "500", max: "1000" },
+            { label: "₱1,000+", min: "1000", max: "" },
+          ]).map(opt => {
+            const isActive = minPrice === opt.min && maxPrice === opt.max && (opt.min !== "" || opt.max !== "");
+            return (
+              <button
+                key={opt.label}
+                onClick={() => { if (isActive) { setMinPrice(""); setMaxPrice(""); } else { setMinPrice(opt.min); setMaxPrice(opt.max); } }}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-150 ${
+                  isActive ? "bg-primary text-white border-primary shadow-sm" : "bg-white text-foreground border-border hover:border-primary/40"
+                }`}
+              >{opt.label}</button>
+            );
+          })}
+        </div>
         <div className="flex items-center gap-2">
           <Input
             type="number"
