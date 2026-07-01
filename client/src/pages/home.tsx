@@ -825,12 +825,12 @@ export default function Home() {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative w-full h-[52dvh] md:h-[calc(100dvh-98px)] overflow-hidden mt-[98px] md:mt-[98px] md:bg-stone-900">
+      <section className="relative w-full h-[52dvh] md:h-[calc(100dvh-98px)] overflow-hidden mt-[98px] md:mt-[98px]">
         {/* Background image */}
         <img
-          src={heroImage}
+          src="https://res.cloudinary.com/tjrvesfo/image/upload/v1782924269/3955d9a4-369b-4785-80b9-0b0215e6dbe1_1_mxuldn.jpg"
           alt="Fresh floral arrangements"
-          className="absolute inset-0 w-full h-full object-cover md:object-contain md:object-center [object-position:20%_top] md:[object-position:center]"
+          className="absolute inset-0 w-full h-full object-cover [object-position:20%_top] md:[object-position:center]"
         />
 
         {/* ── MOBILE overlays (unchanged) ── */}
