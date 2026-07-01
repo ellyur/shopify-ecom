@@ -215,6 +215,7 @@ export default function Home() {
     return () => observer.disconnect();
   }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
   const [selectedBadges, setSelectedBadges] = useState<string[]>([]);
+  const [sortBy, setSortBy] = useState<"default" | "price-asc" | "price-desc" | "newest">("default");
   const [activeSlide, setActiveSlide] = useState(0);
   const [heroNavOpen, setHeroNavOpen] = useState(false);
   const slideHovered = useRef(false);
@@ -306,17 +307,23 @@ export default function Home() {
         return { key: sectionKey, type: "cover" as const, cover };
       } else if (sectionKey.startsWith("badge:")) {
         const badge = sectionKey.replace("badge:", "");
-        const prods = fullyFiltered.filter(p => ((p.badges as string[]) || []).includes(badge));
+        let prods = fullyFiltered.filter(p => ((p.badges as string[]) || []).includes(badge));
+        if (sortBy === "price-asc") prods = [...prods].sort((a, b) => Number(a.price) - Number(b.price));
+        else if (sortBy === "price-desc") prods = [...prods].sort((a, b) => Number(b.price) - Number(a.price));
+        else if (sortBy === "newest") prods = [...prods].sort((a, b) => new Date(b.createdAt ?? 0).getTime() - new Date(a.createdAt ?? 0).getTime());
         return { key: sectionKey, type: "products" as const, label: badge, products: prods, isBadge: true };
       } else {
         const catId = Number(sectionKey.replace("category:", ""));
         const cat = categories?.find(c => c.id === catId);
         if (!cat) return null;
-        const prods = fullyFiltered.filter(p => p.categoryId === catId);
+        let prods = fullyFiltered.filter(p => p.categoryId === catId);
+        if (sortBy === "price-asc") prods = [...prods].sort((a, b) => Number(a.price) - Number(b.price));
+        else if (sortBy === "price-desc") prods = [...prods].sort((a, b) => Number(b.price) - Number(a.price));
+        else if (sortBy === "newest") prods = [...prods].sort((a, b) => new Date(b.createdAt ?? 0).getTime() - new Date(a.createdAt ?? 0).getTime());
         return { key: sectionKey, type: "products" as const, label: cat.name, products: prods, isBadge: false };
       }
     }).filter((s): s is NonNullable<typeof s> => s !== null && (s.type === "cover" || s.products.length > 0));
-  }, [allGroupedProducts, parsedSectionOrder, categories, minPrice, maxPrice, selectedBadges, coverSections]);
+  }, [allGroupedProducts, parsedSectionOrder, categories, minPrice, maxPrice, selectedBadges, coverSections, sortBy]);
 
   const bestSellerProducts = useMemo(() => {
     if (!allGroupedProducts) return [];
@@ -341,6 +348,7 @@ export default function Home() {
     setMinPrice("");
     setMaxPrice("");
     setSelectedBadges([]);
+    setSortBy("default");
     setShowFilter(false);
   };
 
@@ -392,8 +400,12 @@ export default function Home() {
       });
     }
 
+    if (sortBy === "price-asc") filtered = [...filtered].sort((a, b) => Number(a.price) - Number(b.price));
+    else if (sortBy === "price-desc") filtered = [...filtered].sort((a, b) => Number(b.price) - Number(a.price));
+    else if (sortBy === "newest") filtered = [...filtered].sort((a, b) => new Date(b.createdAt ?? 0).getTime() - new Date(a.createdAt ?? 0).getTime());
+
     return filtered;
-  }, [allProducts, activeCategoryId, searchQuery, minPrice, maxPrice, selectedBadges]);
+  }, [allProducts, activeCategoryId, searchQuery, minPrice, maxPrice, selectedBadges, sortBy]);
 
   const activeFiltersStrip = activeFilterCount > 0 ? (
     <div className="flex flex-wrap gap-2 mt-3">
@@ -985,6 +997,61 @@ export default function Home() {
                     </button>
                   );
                 })}
+
+                {/* Divider */}
+                <div className="h-px bg-border/40 my-1 mx-1" />
+
+                {/* Sort */}
+                <span className="text-[7px] font-bold text-muted-foreground uppercase tracking-wide px-1 mt-1">Sort</span>
+                {([
+                  { label: "₱ Low", value: "price-asc" as const },
+                  { label: "₱ High", value: "price-desc" as const },
+                  { label: "Newest", value: "newest" as const },
+                ]).map(opt => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setSortBy(sortBy === opt.value ? "default" : opt.value)}
+                    className={`text-[8px] py-1 px-1 w-full rounded-lg font-medium transition-colors text-center ${sortBy === opt.value ? "bg-primary/10 text-primary font-semibold" : "text-muted-foreground hover:text-foreground"}`}
+                  >{opt.label}</button>
+                ))}
+
+                {/* Price */}
+                <div className="h-px bg-border/40 my-1 mx-1" />
+                <span className="text-[7px] font-bold text-muted-foreground uppercase tracking-wide px-1 mt-1">Price</span>
+                {([
+                  { label: "<₱500", min: "", max: "500" },
+                  { label: "₱500-1k", min: "500", max: "1000" },
+                  { label: "₱1k+", min: "1000", max: "" },
+                ]).map(opt => {
+                  const isActive = minPrice === opt.min && maxPrice === opt.max && (opt.min !== "" || opt.max !== "");
+                  return (
+                    <button
+                      key={opt.label}
+                      onClick={() => { if (isActive) { setMinPrice(""); setMaxPrice(""); } else { setMinPrice(opt.min); setMaxPrice(opt.max); } }}
+                      className={`text-[8px] py-1 px-1 w-full rounded-lg font-medium transition-colors text-center ${isActive ? "bg-primary/10 text-primary font-semibold" : "text-muted-foreground hover:text-foreground"}`}
+                    >{opt.label}</button>
+                  );
+                })}
+
+                {/* Badges */}
+                <div className="h-px bg-border/40 my-1 mx-1" />
+                <span className="text-[7px] font-bold text-muted-foreground uppercase tracking-wide px-1 mt-1">Tags</span>
+                {([
+                  { label: "Best Sell", value: "Best Seller" },
+                  { label: "On Sale", value: "On Sale" },
+                  { label: "New", value: "New Arrival" },
+                  { label: "Limited", value: "Limited Edition" },
+                  { label: "Fave", value: "Most Favorite" },
+                ]).map(badge => {
+                  const isActive = selectedBadges.includes(badge.value);
+                  return (
+                    <button
+                      key={badge.value}
+                      onClick={() => toggleBadge(badge.value)}
+                      className={`text-[8px] py-1 px-1 w-full rounded-lg font-medium transition-colors text-center ${isActive ? "bg-primary/10 text-primary font-semibold" : "text-muted-foreground hover:text-foreground"}`}
+                    >{badge.label}</button>
+                  );
+                })}
               </div>
               {/* Right products area */}
               <div className="flex-1 min-w-0 pl-3 pr-4 pt-2">
@@ -1347,6 +1414,61 @@ export default function Home() {
                       </div>
                       <span className={`text-[10px] font-medium leading-tight text-center w-full truncate px-1 ${isActive ? "text-primary font-semibold" : "text-muted-foreground"}`}>{category.name}</span>
                     </button>
+                  );
+                })}
+
+                {/* Divider */}
+                <div className="h-px bg-border/40 my-2 mx-1" />
+
+                {/* Sort */}
+                <span className="text-[8px] font-bold text-muted-foreground uppercase tracking-wide px-1">Sort</span>
+                {([
+                  { label: "Price: Low→High", value: "price-asc" as const },
+                  { label: "Price: High→Low", value: "price-desc" as const },
+                  { label: "Newest", value: "newest" as const },
+                ]).map(opt => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setSortBy(sortBy === opt.value ? "default" : opt.value)}
+                    className={`text-[9px] py-1.5 px-2 w-full rounded-lg font-medium transition-colors text-left ${sortBy === opt.value ? "bg-primary/10 text-primary font-semibold" : "text-muted-foreground hover:text-foreground hover:bg-muted/50"}`}
+                  >{opt.label}</button>
+                ))}
+
+                {/* Price */}
+                <div className="h-px bg-border/40 my-2 mx-1" />
+                <span className="text-[8px] font-bold text-muted-foreground uppercase tracking-wide px-1">Price</span>
+                {([
+                  { label: "Under ₱500", min: "", max: "500" },
+                  { label: "₱500 – ₱1,000", min: "500", max: "1000" },
+                  { label: "₱1,000+", min: "1000", max: "" },
+                ]).map(opt => {
+                  const isActive = minPrice === opt.min && maxPrice === opt.max && (opt.min !== "" || opt.max !== "");
+                  return (
+                    <button
+                      key={opt.label}
+                      onClick={() => { if (isActive) { setMinPrice(""); setMaxPrice(""); } else { setMinPrice(opt.min); setMaxPrice(opt.max); } }}
+                      className={`text-[9px] py-1.5 px-2 w-full rounded-lg font-medium transition-colors text-left ${isActive ? "bg-primary/10 text-primary font-semibold" : "text-muted-foreground hover:text-foreground hover:bg-muted/50"}`}
+                    >{opt.label}</button>
+                  );
+                })}
+
+                {/* Badges */}
+                <div className="h-px bg-border/40 my-2 mx-1" />
+                <span className="text-[8px] font-bold text-muted-foreground uppercase tracking-wide px-1">Tags</span>
+                {([
+                  { label: "Best Seller", value: "Best Seller" },
+                  { label: "On Sale", value: "On Sale" },
+                  { label: "New Arrival", value: "New Arrival" },
+                  { label: "Limited Edition", value: "Limited Edition" },
+                  { label: "Most Favorite", value: "Most Favorite" },
+                ]).map(badge => {
+                  const isActive = selectedBadges.includes(badge.value);
+                  return (
+                    <button
+                      key={badge.value}
+                      onClick={() => toggleBadge(badge.value)}
+                      className={`text-[9px] py-1.5 px-2 w-full rounded-lg font-medium transition-colors text-left ${isActive ? "bg-primary/10 text-primary font-semibold" : "text-muted-foreground hover:text-foreground hover:bg-muted/50"}`}
+                    >{badge.label}</button>
                   );
                 })}
               </div>
