@@ -338,14 +338,14 @@ export function ProductCard({ product }: ProductCardProps) {
 
             {/* ── Info area ── */}
             <CardFooter className="flex flex-col items-start px-0.5 md:px-1 pt-0 pb-2 bg-transparent gap-0.5 mt-auto">
-              {/* Badge — shown below image */}
-              {badge && (
-                <div className="flex items-center gap-1 flex-wrap pointer-events-none">
+              {/* Badge — always reserve space so all cards align */}
+              <div className="flex items-center gap-1 flex-wrap pointer-events-none min-h-[18px] md:min-h-[20px]">
+                {badge && (
                   <span className={`inline-flex items-center py-0.5 px-2 text-[8px] md:text-[9px] uppercase tracking-widest font-bold rounded-full ${badgeStyle}`}>
                     {badge}
                   </span>
-                </div>
-              )}
+                )}
+              </div>
               {/* Product name */}
               <h3
                 className="font-sans text-[11px] md:text-sm font-medium leading-snug line-clamp-2 text-foreground group-hover:text-primary transition-colors duration-300 w-full"
