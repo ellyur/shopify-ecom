@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Link, useLocation } from "wouter";
 import { useInfiniteProducts, useProductsCount, useCategories, useSpecialOffers, usePublicSettings, useAllProducts } from "@/hooks/use-products";
 import { ProductCard } from "@/components/product-card";
-import { Search, Loader2, SlidersHorizontal, MapPin, ShoppingBag, Home as HomeIcon, Truck, PackageCheck, X, ChevronDown, Flower2, ChevronRight, Menu } from "lucide-react";
+import { Search, Loader2, SlidersHorizontal, MapPin, ShoppingBag, Home as HomeIcon, Truck, PackageCheck, X, ChevronDown, Flower2, ChevronRight, Menu, ShieldCheck, Headphones } from "lucide-react";
 import heroImage from "@assets/hero_background.png";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -164,7 +164,7 @@ export default function Home() {
 
   const { data: allGroupedProducts, isLoading: allGroupedLoading } = useAllProducts(
     { search: searchQuery || undefined },
-    isAllView
+    true
   );
   const loadedCount = allProducts.length;
 
@@ -283,6 +283,13 @@ export default function Home() {
       }
     }).filter((s): s is NonNullable<typeof s> => s !== null && (s.type === "cover" || s.products.length > 0));
   }, [allGroupedProducts, parsedSectionOrder, categories, minPrice, maxPrice, selectedBadges, coverSections]);
+
+  const bestSellerProducts = useMemo(() => {
+    if (!allGroupedProducts) return [];
+    return allGroupedProducts
+      .filter(p => ((p.badges as string[]) || []).includes("Best Seller"))
+      .slice(0, 10);
+  }, [allGroupedProducts]);
 
   const toggleBadge = (badge: string) => {
     setSelectedBadges(prev => prev.includes(badge) ? prev.filter(b => b !== badge) : [...prev, badge]);
@@ -790,8 +797,8 @@ export default function Home() {
         {/* Top fade — hides the plain ceiling, seamless join with the nav */}
         <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-black/50 to-transparent" />
 
-        {/* Text + CTA buttons — anchored in the lower-centre of the hero */}
-        <div className="absolute inset-x-0 bottom-0 flex flex-col items-center px-6 text-center pb-20 md:pb-14">
+        {/* Text + CTA buttons — left on mobile, centred on desktop */}
+        <div className="absolute inset-x-0 bottom-0 flex flex-col items-start md:items-center px-6 text-left md:text-center pb-20 md:pb-14">
           <p className="font-serif text-white/85 text-[10px] md:text-[11px] tracking-[0.3em] uppercase font-normal mb-3">
             Fresh Flowers. Handcrafted.
           </p>
@@ -874,8 +881,8 @@ export default function Home() {
           {(offersLoading || offerSlides.length > 0) && (
           <section className="mb-6">
             <div className="flex items-center justify-between mb-2 px-0.5">
-              <h2 className="text-sm font-semibold font-sans" data-testid="text-mobile-special-offers">Special Offers </h2>
-              <button className="text-[10px] font-semibold text-primary" data-testid="button-see-all-offers" onClick={() => document.getElementById("recommended-products")?.scrollIntoView({ behavior: "smooth", block: "start" })}>See All</button>
+              <h2 className="text-[15px] font-semibold" data-testid="text-mobile-special-offers">Special Offers</h2>
+              <button className="text-[11px] font-semibold text-primary" data-testid="button-see-all-offers" onClick={() => document.getElementById("recommended-products")?.scrollIntoView({ behavior: "smooth", block: "start" })}>See All</button>
             </div>
             {offersLoading ? (
               <div className="rounded-2xl overflow-hidden shadow-md border border-primary/5 min-h-[112px] grid grid-cols-[1fr_118px]">
@@ -996,29 +1003,64 @@ export default function Home() {
             </div>
           ) : (
             <>
-              <section id="recommended-products" className="mb-6 -mx-4 px-4">
-                <div className="flex items-center justify-between mb-1 px-0.5">
-                  <h2 className="text-base font-semibold font-sans" data-testid="text-mobile-recommended">Recommended For You</h2>
-                  <button
-                    className="text-[10px] font-semibold text-primary"
-                    data-testid="button-see-all-products"
-                    onClick={() => document.getElementById("recommended-products")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                  >See All</button>
+              {/* Shop by Category */}
+              <section className="mb-5 -mx-4">
+                <div className="flex items-center justify-between mb-3 px-4">
+                  <h2 className="text-[15px] font-semibold">Shop by Category</h2>
+                  <button className="text-[11px] font-semibold text-primary" onClick={() => document.getElementById("all-products")?.scrollIntoView({ behavior: "smooth", block: "start" })}>See All</button>
                 </div>
-                {!isAllView && totalCount > 0 && (
-                  <p className="text-[10px] text-muted-foreground px-0.5 mb-3" data-testid="text-product-count-mobile">
-                    Showing {loadedCount} of {totalCount} arrangement{totalCount !== 1 ? "s" : ""}
-                  </p>
-                )}
-                {isAllView && allGroupedProducts && allGroupedProducts.length > 0 && (
-                  <p className="text-[10px] text-muted-foreground px-0.5 mb-3" data-testid="text-product-count-all-mobile">
-                    {allGroupedProducts.length} arrangement{allGroupedProducts.length !== 1 ? "s" : ""} across {groupedSections.length} section{groupedSections.length !== 1 ? "s" : ""}
-                  </p>
-                )}
                 {categoryCircles}
               </section>
 
-              <section className="mb-12">{isAllView ? groupedView : productGrid}</section>
+              {/* Best Sellers */}
+              <section className="mb-5 -mx-4">
+                <div className="flex items-center justify-between mb-3 px-4">
+                  <h2 className="text-[15px] font-semibold">Best Sellers</h2>
+                  <button className="text-[11px] font-semibold text-primary" onClick={() => { setSelectedBadges(["Best Seller"]); document.getElementById("all-products")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>See All</button>
+                </div>
+                {allGroupedLoading ? (
+                  <div className="flex gap-3 px-4 overflow-x-auto hide-scrollbar pb-1">
+                    {Array.from({ length: 4 }).map((_, i) => (
+                      <div key={i} className="shrink-0 w-[148px] flex flex-col gap-2">
+                        <Skeleton className="w-full aspect-square rounded-xl" />
+                        <Skeleton className="h-3 w-3/4 rounded-md" />
+                        <Skeleton className="h-3 w-1/2 rounded-md" />
+                      </div>
+                    ))}
+                  </div>
+                ) : bestSellerProducts.length > 0 ? (
+                  <ScrollRow>
+                    {bestSellerProducts.map(product => (
+                      <div key={product.id} className="snap-start shrink-0 w-[148px]">
+                        <ProductCard product={product} />
+                      </div>
+                    ))}
+                  </ScrollRow>
+                ) : null}
+              </section>
+
+              {/* Features strip */}
+              <section className="mb-5 -mx-4">
+                <div className="grid grid-cols-4 bg-muted/30 border-y border-border/40 py-4 px-1">
+                  {([
+                    { icon: Flower2, label: "Fresh &\nPremium", sub: "Handpicked daily" },
+                    { icon: Truck, label: "Same-Day\nDelivery", sub: "Order before 2PM" },
+                    { icon: ShieldCheck, label: "Secure\nPayment", sub: "100% Protected" },
+                    { icon: Headphones, label: "Customer\nCare", sub: "We're here to help" },
+                  ] as const).map(({ icon: Icon, label, sub }) => (
+                    <div key={label} className="flex flex-col items-center text-center px-0.5">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mb-1.5">
+                        <Icon className="h-3.5 w-3.5 text-primary" />
+                      </div>
+                      <p className="text-[8.5px] font-semibold leading-tight text-foreground whitespace-pre-line">{label}</p>
+                      <p className="text-[7.5px] text-muted-foreground leading-tight mt-0.5">{sub}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* All products */}
+              <section className="mb-12" id="all-products">{isAllView ? groupedView : productGrid}</section>
             </>
           )}
         </main>
