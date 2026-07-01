@@ -796,36 +796,36 @@ export default function Home() {
         <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-black/50 to-transparent" />
 
         {/* Text + CTA buttons — left on mobile, centred on desktop */}
-        <div className="absolute inset-x-0 bottom-0 flex flex-col items-start md:items-center px-6 text-left md:text-center pb-20 md:pb-14">
-          <p className="font-serif text-white/85 text-[10px] md:text-[11px] tracking-[0.3em] uppercase font-normal mb-3">
+        <div className="absolute inset-x-0 bottom-0 flex flex-col items-start md:items-center px-6 text-left md:text-center pb-10 md:pb-14">
+          <p className="font-serif text-white/85 text-[9px] md:text-[11px] tracking-[0.3em] uppercase font-normal mb-2 md:mb-3">
             Fresh Flowers. Handcrafted.
           </p>
 
           {/* Desktop: "BEAUTIFUL. NATURAL." line 1 | "TIMELESS." line 2 */}
-          <h1 className="font-serif text-white font-light uppercase leading-[1.12] mb-6 md:mb-8 tracking-[0.04em]">
+          <h1 className="font-serif text-white font-light uppercase leading-[1.12] mb-4 md:mb-8 tracking-[0.04em]">
             <span className="hidden md:block text-[4rem] xl:text-[4.5rem]">
               Beautiful. Natural.<br />Timeless.
             </span>
             {/* Mobile: one word per line */}
-            <span className="block md:hidden text-[2.5rem]">
+            <span className="block md:hidden text-[1.75rem]">
               Beautiful.<br />Natural.<br />Timeless.
             </span>
           </h1>
 
           {/* Buttons — width tied to the headline block */}
-          <div className="flex flex-col gap-3 w-full max-w-[17rem] md:max-w-[22rem]">
+          <div className="flex flex-col gap-2 w-full max-w-[14rem] md:max-w-[22rem]">
             <button
               onClick={() => {
                 setSelectedBadges(["Best Seller"]);
                 document.getElementById("recommended-products")?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              className="bg-[#4a5e3a] text-white text-[10px] tracking-[0.28em] uppercase py-[13px] font-semibold hover:bg-[#3d4f30] transition-colors"
+              className="bg-[#4a5e3a] text-white text-[9px] tracking-[0.28em] uppercase py-[9px] md:py-[13px] font-semibold hover:bg-[#3d4f30] transition-colors"
             >
               Shop Best Sellers
             </button>
             <button
               onClick={() => document.getElementById("recommended-products")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-              className="border border-white/80 text-white text-[10px] tracking-[0.28em] uppercase py-[13px] font-semibold bg-transparent hover:bg-white/10 transition-colors"
+              className="border border-white/80 text-white text-[9px] tracking-[0.28em] uppercase py-[9px] md:py-[13px] font-semibold bg-transparent hover:bg-white/10 transition-colors"
             >
               Shop All Bouquets
             </button>
