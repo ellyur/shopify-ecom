@@ -47,7 +47,8 @@ function CoverSectionBanner({ cover }: { cover: StorefrontCoverSection }) {
   if (cover.images.length === 0) return null;
 
   return (
-    <div className="relative w-full overflow-hidden rounded-xl" data-testid={`cover-section-${cover.id}`}>
+    <div className="flex justify-center">
+    <div className="relative w-full md:w-[70%] overflow-hidden rounded-xl" data-testid={`cover-section-${cover.id}`}>
       <AnimatePresence mode="wait">
         <motion.img
           key={`${cover.id}-${activeImage}`}
@@ -74,6 +75,7 @@ function CoverSectionBanner({ cover }: { cover: StorefrontCoverSection }) {
           ))}
         </div>
       )}
+    </div>
     </div>
   );
 }
