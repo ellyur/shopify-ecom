@@ -121,6 +121,8 @@ const CATEGORY_ICON_MAP: Record<string, string> = {
   "all": "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782894903/flower-bouquet_kynp1c.png",
   "funeral": "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782894997/wreath_xcpgn3.png",
   "stuff toy": "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782894903/plush-toy_vidnhe.png",
+  "fresh": "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782895040/bouquet_p0hcgt.png",
+  "premium": "https://res.cloudinary.com/wq5jxe2r/image/upload/v1782895040/bouquet_p0hcgt.png",
 };
 
 function getCategoryIcon(name: string): string | null {
