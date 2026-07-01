@@ -858,16 +858,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Down arrow — mobile only, sits below the buttons */}
-        <div className="absolute bottom-6 left-0 right-0 flex justify-center md:hidden">
-          <button
-            aria-label="Scroll to products"
-            onClick={() => document.getElementById("recommended-products")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-            className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md hover:bg-white transition-colors hover:scale-105 active:scale-95 duration-200"
-          >
-            <ChevronDown className="h-5 w-5 text-gray-800" />
-          </button>
-        </div>
       </section>
 
       <div className="md:hidden min-h-[100dvh] w-full max-w-[430px] mx-auto bg-background pb-24 [overflow-x:clip]">
