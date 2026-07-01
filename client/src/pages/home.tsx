@@ -816,48 +816,67 @@ export default function Home() {
           alt="Fresh floral arrangements"
           className="absolute inset-0 w-full h-full object-cover object-top"
         />
-        {/* Gradient overlay — stronger in the lower half where text sits */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent" />
-        {/* Top fade — hides the plain ceiling, seamless join with the nav */}
-        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-black/50 to-transparent" />
 
-        {/* Text + CTA buttons — left on mobile, centred on desktop */}
-        <div className="absolute inset-x-0 bottom-0 flex flex-col items-start md:items-center px-6 text-left md:text-center pb-10 md:pb-14">
-          <p className="font-serif text-white/85 text-[9px] md:text-[11px] tracking-[0.3em] uppercase font-normal mb-2 md:mb-3">
+        {/* ── MOBILE overlays (unchanged) ── */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent md:hidden" />
+        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-black/50 to-transparent md:hidden" />
+
+        {/* Mobile text + CTAs */}
+        <div className="absolute inset-x-0 bottom-0 flex flex-col items-start px-6 text-left pb-10 md:hidden">
+          <p className="font-serif text-white/85 text-[9px] tracking-[0.3em] uppercase font-normal mb-2">
             Fresh Flowers. Handcrafted.
           </p>
-
-          {/* Desktop: "BEAUTIFUL. NATURAL." line 1 | "TIMELESS." line 2 */}
-          <h1 className="font-serif text-white font-light uppercase leading-[1.12] mb-4 md:mb-8 tracking-[0.04em]">
-            <span className="hidden md:block text-[4rem] xl:text-[4.5rem]">
-              Beautiful. Natural.<br />Timeless.
-            </span>
-            {/* Mobile: one word per line */}
-            <span className="block md:hidden text-[1.25rem]">
-              Beautiful.<br />Natural.<br />Timeless.
-            </span>
+          <h1 className="font-serif text-white font-light uppercase leading-[1.12] mb-4 tracking-[0.04em] text-[1.25rem]">
+            Beautiful.<br />Natural.<br />Timeless.
           </h1>
-
-          {/* Buttons — width tied to the headline block */}
-          <div className="flex flex-col gap-1.5 w-full max-w-[11rem] md:max-w-[22rem]">
+          <div className="flex flex-col gap-1.5 w-full max-w-[11rem]">
             <button
-              onClick={() => {
-                setSelectedBadges(["Best Seller"]);
-                document.getElementById("recommended-products")?.scrollIntoView({ behavior: "smooth", block: "start" });
-              }}
-              className="bg-[#4a5e3a] text-white text-[8px] tracking-[0.22em] uppercase py-[7px] md:py-[13px] font-semibold hover:bg-[#3d4f30] transition-colors"
-            >
-              Shop Best Sellers
-            </button>
+              onClick={() => { setSelectedBadges(["Best Seller"]); document.getElementById("recommended-products")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}
+              className="bg-[#4a5e3a] text-white text-[8px] tracking-[0.22em] uppercase py-[7px] font-semibold hover:bg-[#3d4f30] transition-colors"
+            >Shop Best Sellers</button>
             <button
               onClick={() => document.getElementById("recommended-products")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-              className="border border-white/80 text-white text-[8px] tracking-[0.22em] uppercase py-[7px] md:py-[13px] font-semibold bg-transparent hover:bg-white/10 transition-colors"
-            >
-              Shop All Bouquets
-            </button>
+              className="border border-white/80 text-white text-[8px] tracking-[0.22em] uppercase py-[7px] font-semibold bg-transparent hover:bg-white/10 transition-colors"
+            >Shop All Bouquets</button>
           </div>
         </div>
 
+        {/* ── DESKTOP: Left-Aligned Cinematic ── */}
+        {/* Left-to-right gradient so text is legible */}
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+        {/* Subtle top vignette */}
+        <div className="hidden md:block absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-black/30 to-transparent" />
+
+        <div className="hidden md:flex absolute inset-0 items-center px-16 xl:px-24">
+          {/* Thin vertical decorative line */}
+          <div className="w-px h-40 bg-white/40 mr-8 shrink-0" />
+
+          <div className="flex flex-col">
+            {/* Eyebrow */}
+            <p className="font-serif text-white/70 text-[11px] xl:text-[13px] tracking-[0.35em] uppercase mb-5">
+              Fresh Flowers. Handcrafted.
+            </p>
+
+            {/* Main headline — one word per line, very large */}
+            <h1 className="font-serif text-white font-light uppercase leading-[0.95] tracking-[0.03em] mb-8">
+              <span className="block text-[5.5rem] xl:text-[7rem]">Beautiful.</span>
+              <span className="block text-[5.5rem] xl:text-[7rem]">Natural.</span>
+              <span className="block text-[5.5rem] xl:text-[7rem]">Timeless.</span>
+            </h1>
+
+            {/* CTAs — horizontal row on desktop */}
+            <div className="flex gap-3">
+              <button
+                onClick={() => { setSelectedBadges(["Best Seller"]); document.getElementById("recommended-products")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}
+                className="bg-white text-[#2d2d2d] text-[10px] xl:text-xs tracking-[0.2em] uppercase px-8 py-3.5 font-semibold hover:bg-white/90 transition-colors"
+              >Shop Best Sellers</button>
+              <button
+                onClick={() => document.getElementById("recommended-products")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                className="border border-white/70 text-white text-[10px] xl:text-xs tracking-[0.2em] uppercase px-8 py-3.5 font-semibold bg-transparent hover:bg-white/10 transition-colors"
+              >Shop All Bouquets</button>
+            </div>
+          </div>
+        </div>
       </section>
 
       <div className="md:hidden min-h-[100dvh] w-full max-w-[430px] mx-auto bg-background pb-24 [overflow-x:clip]">
