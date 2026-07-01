@@ -787,6 +787,8 @@ export default function Home() {
         />
         {/* Gradient overlay — stronger in the lower half where text sits */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent" />
+        {/* Top fade — hides the plain ceiling, seamless join with the nav */}
+        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-black/50 to-transparent" />
 
         {/* Text + CTA buttons — anchored in the lower-centre of the hero */}
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-center px-6 text-center pb-20 md:pb-14">
