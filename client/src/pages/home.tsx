@@ -733,20 +733,17 @@ export default function Home() {
         Enjoy hassle-free flower shopping
       </div>
 
-      {/* ── Hero Navbar (transparent → solid after first scroll; hidden on desktop once sticky header appears) ── */}
+      {/* ── Hero Navbar ── */}
       <nav className={cn(
-        "fixed left-0 right-0 z-40 transition-all duration-300 top-[34px]",
+        "fixed left-0 right-0 z-40 transition-all duration-300 top-[34px] bg-white border-b border-border/30 shadow-sm py-2",
         desktopScrolled ? "md:hidden" : "",
-        hasScrolled
-          ? "bg-[#4a5e3a] shadow-sm py-2"
-          : "bg-transparent py-3"
       )}>
         <div className="max-w-screen-2xl mx-auto px-4 md:px-6">
           <div className="relative flex items-center justify-between h-12">
             {/* Hamburger */}
             <Sheet open={heroNavOpen} onOpenChange={setHeroNavOpen}>
               <SheetTrigger asChild>
-                <button aria-label="Open menu" className="p-2 rounded-md transition-colors text-white hover:bg-white/10">
+                <button aria-label="Open menu" className="p-2 rounded-md transition-colors text-foreground hover:bg-muted/60">
                   <Menu className="h-6 w-6" />
                 </button>
               </SheetTrigger>
@@ -772,7 +769,7 @@ export default function Home() {
             <div className="flex items-center gap-0.5">
               <CartDrawer
                 trigger={
-                  <button aria-label="Open cart" className="p-2 rounded-md transition-colors text-white hover:bg-white/10">
+                  <button aria-label="Open cart" className="p-2 rounded-md transition-colors text-foreground hover:bg-muted/60">
                     <ShoppingBag className="h-5 w-5" />
                   </button>
                 }
@@ -783,7 +780,7 @@ export default function Home() {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="relative w-full h-[52dvh] md:h-[90dvh] overflow-hidden">
+      <section className="relative w-full h-[52dvh] md:h-[90dvh] overflow-hidden mt-[98px] md:mt-[98px]">
         {/* Background image */}
         <img
           src={heroImage}
