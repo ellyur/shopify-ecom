@@ -92,7 +92,7 @@ function ScrollRow({ children, noNegativeMargin }: { children: React.ReactNode; 
     scrollRef.current?.scrollBy({ left: 300, behavior: "smooth" });
   };
 
-  const edgeClass = noNegativeMargin ? "px-1" : "-mx-4 px-4 md:mx-0 md:px-0";
+  const edgeClass = noNegativeMargin ? "px-4 md:px-0" : "-mx-4 px-4 md:mx-0 md:px-0";
 
   return (
     <div className="relative md:contents">
@@ -958,7 +958,7 @@ export default function Home() {
                     ))}
                   </div>
                 ) : bestSellerProducts.length > 0 ? (
-                  <ScrollRow>
+                  <ScrollRow noNegativeMargin>
                     {bestSellerProducts.map(product => (
                       <div key={product.id} className="snap-start shrink-0 w-[118px]">
                         <ProductCard product={product} />
