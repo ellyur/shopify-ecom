@@ -322,8 +322,9 @@ export default function Home() {
     if (!allGroupedProducts) return [];
     return allGroupedProducts
       .filter(p => ((p.badges as string[]) || []).includes("Best Seller"))
+      .filter(p => activeCategoryId === "all" || p.categoryId === activeCategoryId)
       .slice(0, 10);
-  }, [allGroupedProducts]);
+  }, [allGroupedProducts, activeCategoryId]);
 
   const toggleBadge = (badge: string) => {
     setSelectedBadges(prev => prev.includes(badge) ? prev.filter(b => b !== badge) : [...prev, badge]);
