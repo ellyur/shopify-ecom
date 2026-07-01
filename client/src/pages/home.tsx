@@ -811,7 +811,7 @@ export default function Home() {
         <img
           src={heroImage}
           alt="Fresh floral arrangements"
-          className="absolute inset-0 w-full h-full object-cover object-left-top md:object-contain md:object-center"
+          className="absolute inset-0 w-full h-full object-cover md:object-contain md:object-center [object-position:20%_top] md:[object-position:center]"
         />
 
         {/* ── MOBILE overlays (unchanged) ── */}
