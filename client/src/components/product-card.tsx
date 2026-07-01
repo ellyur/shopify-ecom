@@ -137,7 +137,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
   const allImages = useMemo(() => {
     const imgs: { src: string; variantId: number | null }[] = [];
-    if (product.images?.[0]) imgs.push({ src: product.images[0], variantId: null });
+    (product.images || []).forEach(img => { if (img) imgs.push({ src: img, variantId: null }); });
     variants.forEach(v => { if (v.imageUrl) imgs.push({ src: v.imageUrl, variantId: v.id }); });
     if (imgs.length === 0) imgs.push({ src: "https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=800&auto=format&fit=crop", variantId: null });
     return imgs;
