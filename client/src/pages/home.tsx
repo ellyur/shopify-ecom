@@ -807,25 +807,25 @@ export default function Home() {
               Beautiful. Natural.<br />Timeless.
             </span>
             {/* Mobile: one word per line */}
-            <span className="block md:hidden text-[1.75rem]">
+            <span className="block md:hidden text-[1.25rem]">
               Beautiful.<br />Natural.<br />Timeless.
             </span>
           </h1>
 
           {/* Buttons — width tied to the headline block */}
-          <div className="flex flex-col gap-2 w-full max-w-[14rem] md:max-w-[22rem]">
+          <div className="flex flex-col gap-1.5 w-full max-w-[11rem] md:max-w-[22rem]">
             <button
               onClick={() => {
                 setSelectedBadges(["Best Seller"]);
                 document.getElementById("recommended-products")?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              className="bg-[#4a5e3a] text-white text-[9px] tracking-[0.28em] uppercase py-[9px] md:py-[13px] font-semibold hover:bg-[#3d4f30] transition-colors"
+              className="bg-[#4a5e3a] text-white text-[8px] tracking-[0.22em] uppercase py-[7px] md:py-[13px] font-semibold hover:bg-[#3d4f30] transition-colors"
             >
               Shop Best Sellers
             </button>
             <button
               onClick={() => document.getElementById("recommended-products")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-              className="border border-white/80 text-white text-[9px] tracking-[0.28em] uppercase py-[9px] md:py-[13px] font-semibold bg-transparent hover:bg-white/10 transition-colors"
+              className="border border-white/80 text-white text-[8px] tracking-[0.22em] uppercase py-[7px] md:py-[13px] font-semibold bg-transparent hover:bg-white/10 transition-colors"
             >
               Shop All Bouquets
             </button>
