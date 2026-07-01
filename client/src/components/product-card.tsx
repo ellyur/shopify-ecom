@@ -21,7 +21,7 @@ interface ProductCardProps {
 }
 
 const BADGE_STYLES: Record<string, string> = {
-  "Best Seller": "bg-amber-500 text-white",
+  "Best Seller": "bg-rose-500 text-white",
   "On Sale": "bg-emerald-500 text-white",
   "New Arrival": "bg-sky-500 text-white",
   "Limited Edition": "bg-purple-500 text-white",
@@ -254,10 +254,10 @@ export function ProductCard({ product }: ProductCardProps) {
             }
           }}
         >
-          <Card className="border-none bg-transparent shadow-none overflow-hidden rounded-2xl h-full flex flex-col group">
+          <Card className="border border-border/40 bg-white shadow-sm overflow-hidden rounded-2xl h-full flex flex-col group">
             {/* ── Image area ── */}
             <CardContent
-              className="p-0 relative aspect-square md:aspect-[4/5] overflow-hidden bg-white rounded-2xl mb-2 md:mb-3 shadow-sm"
+              className="p-0 relative aspect-square md:aspect-[4/5] overflow-hidden bg-white rounded-none mb-0 shadow-none"
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
               onClick={handleCardClick}
@@ -314,7 +314,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
               {/* Discount badge — top right of image */}
               {discountPct > 0 && (
-                <div className="absolute top-2 right-2 z-20 pointer-events-none">
+                <div className="absolute top-2 left-2 z-20 pointer-events-none">
                   <span className="inline-flex items-center py-0.5 px-2 text-[9px] font-black rounded-full bg-red-500 text-white shadow-sm">
                     -{discountPct}%
                   </span>
@@ -337,9 +337,9 @@ export function ProductCard({ product }: ProductCardProps) {
             </CardContent>
 
             {/* ── Info area ── */}
-            <CardFooter className="flex flex-col items-start px-0.5 md:px-1 pt-0 pb-2 bg-transparent gap-0.5 mt-auto">
+            <CardFooter className="flex flex-col items-start px-2 md:px-3 pt-2 pb-3 bg-transparent gap-0.5 mt-auto">
               {/* Badge — always reserve space so all cards align */}
-              <div className="flex items-center gap-1 flex-wrap pointer-events-none min-h-[18px] md:min-h-[20px]">
+              <div className="flex items-center gap-1 flex-wrap pointer-events-none min-h-[20px] md:min-h-[22px]">
                 {badge && (
                   <span className={`inline-flex items-center py-0.5 px-2 text-[8px] md:text-[9px] uppercase tracking-widest font-bold rounded-full ${badgeStyle}`}>
                     {badge}
@@ -354,21 +354,32 @@ export function ProductCard({ product }: ProductCardProps) {
                 {product.name}
               </h3>
 
-              {/* Price row */}
-              <div className="flex items-baseline gap-1.5 flex-wrap">
+              {/* Price row — always reserve space for original price */}
+              <div className="flex items-baseline gap-1.5 flex-wrap min-h-[18px]">
                 <p
                   className="font-bold text-[12px] md:text-sm text-primary leading-none"
                   data-testid={`text-product-price-mobile-${product.id}`}
                 >
                   ₱{(selectedVariant?.price ? Number(selectedVariant.price) : salePrice).toLocaleString(undefined, { minimumFractionDigits: 2 })}
                 </p>
-                {originalPrice && (
+                {originalPrice ? (
                   <p
                     className="text-[9px] md:text-xs text-muted-foreground line-through leading-none"
                     data-testid={`text-product-original-price-${product.id}`}
                   >
                     ₱{originalPrice.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                   </p>
+                ) : (
+                  <span className="invisible text-[9px] md:text-xs">₱0.00</span>
+                )}
+              </div>
+
+              {/* "You save" row — always reserve space */}
+              <div className="min-h-[20px] md:min-h-[22px] flex items-center">
+                {discountPct > 0 && originalPrice && (
+                  <span className="inline-flex items-center gap-1 py-0.5 px-2 text-[8px] md:text-[9px] font-semibold rounded-full bg-rose-100 text-rose-600">
+                    🏷 You save ₱{(originalPrice - salePrice).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                  </span>
                 )}
               </div>
 
