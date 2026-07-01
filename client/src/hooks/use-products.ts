@@ -104,6 +104,8 @@ export function usePublicSettings() {
       if (!res.ok) throw new Error("Failed to fetch settings");
       return api.settings.list.responses[200].parse(await res.json());
     },
+    staleTime: 0,
+    refetchOnWindowFocus: true,
   });
 }
 
