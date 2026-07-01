@@ -765,7 +765,7 @@ export default function Home() {
 
             {/* Center logo */}
             <Link href="/" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <BrandLogo className="h-10 md:h-12 w-auto" showFallbackText forceWhite />
+              <BrandLogo className="h-10 md:h-12 w-auto" showFallbackText />
             </Link>
 
             {/* Right: cart */}
@@ -1149,7 +1149,7 @@ export default function Home() {
               className="fixed top-[34px] left-0 right-0 z-40 bg-[#4a5e3a] shadow-sm px-6 xl:px-10"
             >
               <div className="flex items-center gap-4 h-16 max-w-screen-2xl mx-auto">
-                <BrandLogo className="h-10 w-auto shrink-0" forceWhite data-testid="img-desktop-sticky-logo" />
+                <BrandLogo className="h-10 w-auto shrink-0" data-testid="img-desktop-sticky-logo" />
                 <div className="relative flex-1 max-w-lg">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/60" />
                   <input
