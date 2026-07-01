@@ -257,7 +257,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <Card className="border border-border/40 bg-white shadow-sm overflow-hidden rounded-2xl h-full flex flex-col group">
             {/* ── Image area ── */}
             <CardContent
-              className="p-0 relative aspect-square md:aspect-[4/5] overflow-hidden bg-white rounded-none mb-0 shadow-none"
+              className="p-0 relative aspect-square overflow-hidden bg-white rounded-none mb-0 shadow-none"
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
               onClick={handleCardClick}
@@ -322,33 +322,33 @@ export function ProductCard({ product }: ProductCardProps) {
               )}
 
               {/* Bottom row: Add to cart (right only) */}
-              <div className="absolute bottom-2 md:bottom-3 right-2 md:right-3 z-20 pointer-events-none">
+              <div className="absolute bottom-2 right-2 z-20 pointer-events-none">
                 {/* Add to cart */}
                 <Button
                   onClick={handleAddToCart}
                   disabled={product.stock <= 0}
                   size="icon"
                   data-testid={`button-add-cart-${product.id}`}
-                  className="pointer-events-auto rounded-full bg-primary text-white hover:bg-primary/85 active:scale-95 transition-all duration-200 shadow-lg border-none h-8 w-8 md:h-10 md:w-10"
+                  className="pointer-events-auto rounded-full bg-primary text-white hover:bg-primary/85 active:scale-95 transition-all duration-200 shadow-lg border-none h-8 w-8"
                 >
-                  <Plus className="h-4 w-4 md:h-5 md:w-5" />
+                  <Plus className="h-4 w-4" />
                 </Button>
               </div>
             </CardContent>
 
             {/* ── Info area ── */}
-            <CardFooter className="flex flex-col items-start px-2 md:px-3 pt-2 pb-3 bg-transparent gap-0.5">
+            <CardFooter className="flex flex-col items-start px-2 pt-2 pb-2 bg-transparent gap-0.5">
               {/* Badge — fixed height, no overflow */}
               <div className="h-5 flex items-center overflow-hidden w-full pointer-events-none">
                 {badge && (
-                  <span className={`inline-flex items-center py-0.5 px-2 text-[8px] md:text-[9px] uppercase tracking-widest font-bold rounded-full ${badgeStyle}`}>
+                  <span className={`inline-flex items-center py-0.5 px-2 text-[8px] uppercase tracking-widest font-bold rounded-full ${badgeStyle}`}>
                     {badge}
                   </span>
                 )}
               </div>
               {/* Product name — fixed 1 line */}
               <h3
-                className="h-5 font-sans text-[11px] md:text-xs font-medium leading-tight truncate text-foreground group-hover:text-primary transition-colors duration-300 w-full"
+                className="h-5 font-sans text-[11px] font-medium leading-tight truncate text-foreground group-hover:text-primary transition-colors duration-300 w-full"
                 data-testid={`text-product-name-${product.id}`}
               >
                 {product.name}
@@ -357,14 +357,14 @@ export function ProductCard({ product }: ProductCardProps) {
               {/* Price + original price — fixed height, same row */}
               <div className="h-5 flex items-center gap-1.5 overflow-hidden w-full">
                 <p
-                  className="font-bold text-[12px] md:text-sm text-primary leading-none shrink-0"
+                  className="font-bold text-[12px] text-primary leading-none shrink-0"
                   data-testid={`text-product-price-mobile-${product.id}`}
                 >
                   ₱{(selectedVariant?.price ? Number(selectedVariant.price) : salePrice).toLocaleString(undefined, { minimumFractionDigits: 2 })}
                 </p>
                 {originalPrice && (
                   <p
-                    className="text-[9px] md:text-[10px] text-muted-foreground line-through leading-none truncate"
+                    className="text-[9px] text-muted-foreground line-through leading-none truncate"
                     data-testid={`text-product-original-price-${product.id}`}
                   >
                     ₱{originalPrice.toLocaleString(undefined, { minimumFractionDigits: 2 })}
@@ -401,7 +401,7 @@ export function ProductCard({ product }: ProductCardProps) {
                         data-testid={`swatch-${v.id}-product-${product.id}`}
                         title={v.colorName}
                         onClick={(e) => handleSwatchClick(e, v.id)}
-                        className={`relative h-4 w-4 md:h-5 md:w-5 rounded-full overflow-hidden transition-all duration-200 ${
+                        className={`relative h-4 w-4 rounded-full overflow-hidden transition-all duration-200 ${
                           selectedVariantId === v.id
                             ? "ring-2 ring-primary ring-offset-1 scale-125 shadow-md"
                             : "ring-1 ring-border hover:ring-2 hover:ring-primary/50 hover:scale-110"
@@ -419,7 +419,7 @@ export function ProductCard({ product }: ProductCardProps) {
                     );
                   })}
                   {selectedVariant && (
-                    <span className="text-[9px] md:text-[10px] text-muted-foreground leading-none ml-0.5" data-testid={`text-selected-color-${product.id}`}>
+                    <span className="text-[9px] text-muted-foreground leading-none ml-0.5" data-testid={`text-selected-color-${product.id}`}>
                       {selectedVariant.colorName}
                     </span>
                   )}

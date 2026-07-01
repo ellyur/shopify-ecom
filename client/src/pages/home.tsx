@@ -614,7 +614,7 @@ export default function Home() {
               <Skeleton className="h-5 w-36 rounded-md" />
               <div className="flex-1 h-px bg-border/30" />
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-7">
+            <div className="grid grid-cols-2 md:grid-cols-8 gap-5 md:gap-3">
               {Array.from({ length: 4 }).map((_, j) => (
                 <div key={j} className="flex flex-col gap-2">
                   <Skeleton className="aspect-square rounded-xl" />
@@ -655,7 +655,7 @@ export default function Home() {
                   ))}
                 </ScrollRow>
               ) : (
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-7">
+                <div className="grid grid-cols-2 md:grid-cols-8 gap-5 md:gap-3">
                   {section.products.map(product => (
                     <ProductCard key={`${section.key}-${product.id}`} product={product} />
                   ))}
@@ -680,7 +680,7 @@ export default function Home() {
   ) : null;
 
   const productGrid = categoriesLoading || productsLoading ? (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-7">
+    <div className="grid grid-cols-2 md:grid-cols-8 gap-5 md:gap-3">
       {Array.from({ length: 6 }).map((_, i) => (
         <div key={i} className="flex flex-col gap-2">
           <Skeleton className="aspect-square md:aspect-[4/5] w-full rounded-xl md:rounded-2xl" />
@@ -700,7 +700,7 @@ export default function Home() {
           ))}
         </ScrollRow>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-7">
+        <div className="grid grid-cols-2 md:grid-cols-8 gap-5 md:gap-3">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
