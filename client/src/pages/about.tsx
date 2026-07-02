@@ -251,7 +251,9 @@ export default function About() {
         </div>
       </section>
 
-      <StoreFooter />
+      <div className="-mt-12">
+        <StoreFooter />
+      </div>
     </div>
   );
 }
