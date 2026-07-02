@@ -226,7 +226,40 @@ export default function About() {
       </section>
 
       {/* ── THANK YOU ── */}
-      <section className="relative w-full overflow-hidden mt-2" style={{ minHeight: 320 }}>
+      {/* Mobile: stacked layout (image on top, text below) */}
+      <section className="mt-2 lg:hidden">
+        <div className="w-full overflow-hidden" style={{ height: 220 }}>
+          <img
+            src={THANKS_IMG}
+            alt="Thank you"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: "70% center" }}
+          />
+        </div>
+        <div className="px-6 py-8" style={{ backgroundColor: "#F5F0EB" }}>
+          <h2
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: "clamp(32px, 8vw, 48px)",
+              fontWeight: 600,
+              lineHeight: 1,
+              color: "#1a1a1a",
+              textTransform: "uppercase",
+              marginBottom: 12,
+            }}
+          >
+            Thank You
+          </h2>
+          <BotanicalDivider />
+          <p style={{ fontSize: 15, lineHeight: 1.8, color: "#555" }}>
+            Every bouquet we create is a reflection of our passion and gratitude.
+            Thank you for letting us be part of your special moments.
+          </p>
+        </div>
+      </section>
+
+      {/* Desktop: overlay layout */}
+      <section className="relative w-full overflow-hidden mt-2 hidden lg:block" style={{ minHeight: 320 }}>
         <img
           src={THANKS_IMG}
           alt="Thank you"
@@ -237,7 +270,7 @@ export default function About() {
           background: "linear-gradient(to right, rgba(245,240,235,0.96) 0%, rgba(245,240,235,0.90) 28%, rgba(245,240,235,0.55) 46%, transparent 62%)"
         }} />
 
-        <div className="absolute top-0 left-0 bottom-0 overflow-hidden" style={{ width: "44%" }}>
+        <div className="absolute top-0 left-0 bottom-0" style={{ width: "44%" }}>
           <div className="pt-8 pr-6" style={{ paddingLeft: "clamp(16px, 4vw, 80px)" }}>
             <h2
               style={{
