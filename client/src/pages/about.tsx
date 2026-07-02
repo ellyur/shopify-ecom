@@ -68,7 +68,7 @@ export default function About() {
       {/* ── HERO — 2-column grid: 45% content / 55% image ── */}
       <section
         className="grid grid-cols-1 lg:[grid-template-columns:45%_55%]"
-        style={{ marginTop: 56, minHeight: 700 }}
+        style={{ marginTop: 90, minHeight: 700 }}
       >
         {/* LEFT — off-white content panel */}
         <div
@@ -164,7 +164,7 @@ export default function About() {
       {/* ── OUR LOCATION ── */}
       <section
         className="px-4 sm:px-8 md:px-16 lg:px-24 pb-6 w-full max-w-6xl mx-auto"
-        style={{ marginTop: 40 }}
+        style={{ marginTop: 74 }}
       >
         <SectionHeader label="Our Location" />
         <div className="grid grid-cols-2 gap-4 md:gap-6">

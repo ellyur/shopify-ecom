@@ -25,7 +25,14 @@ export async function setupVite(server: Server, app: Express) {
         process.exit(1);
       },
     },
-    server: serverOptions,
+    server: {
+      ...serverOptions,
+      headers: {
+        "Cache-Control": "no-store, no-cache, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+      },
+    },
     appType: "custom",
   });
 

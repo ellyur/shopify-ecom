@@ -110,7 +110,7 @@ export default function FAQs() {
       <Navbar />
 
       {/* Hero */}
-      <section className="mt-[98px] bg-stone-50 border-b border-border/40 py-16 px-6 text-center">
+      <section className="mt-[132px] bg-stone-50 border-b border-border/40 py-16 px-6 text-center">
         <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">Help Center</p>
         <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-4">Frequently Asked Questions</h1>
         <p className="text-muted-foreground max-w-md mx-auto text-sm leading-relaxed">

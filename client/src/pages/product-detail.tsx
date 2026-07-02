@@ -90,7 +90,7 @@ export default function ProductDetail() {
   return (
     <div className="min-h-screen bg-background selection:bg-accent/30">
       <Navbar />
-      <main className="container mx-auto px-4 py-20">
+      <main className="container mx-auto px-4 pt-[90px] pb-20">
         <div className="mb-8">
           <Link href="/" className="group inline-flex items-center text-[10px] uppercase tracking-[0.3em] font-bold text-muted-foreground hover:text-primary transition-colors">
             <ArrowLeft className="mr-2 h-3 w-3 transition-transform group-hover:-translate-x-1" />

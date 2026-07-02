@@ -238,7 +238,7 @@ export default function Checkout() {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <div className="container mx-auto px-4 py-20 text-center">
+        <div className="container mx-auto px-4 pt-[90px] pb-20 text-center">
           <h2 className="text-2xl font-serif mb-4">Your cart is empty</h2>
           <Button onClick={() => setLocation("/")}>Continue Shopping</Button>
         </div>
@@ -353,7 +353,7 @@ export default function Checkout() {
         )}
       </AnimatePresence>
 
-      <div className="container mx-auto px-4 py-16 md:py-32">
+      <div className="container mx-auto px-4 pt-[90px] pb-16 md:pb-32">
         {/* Active event banner */}
         {activeEvent && (
           <motion.div

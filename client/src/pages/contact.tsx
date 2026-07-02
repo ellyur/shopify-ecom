@@ -72,11 +72,11 @@ export default function Contact() {
       {/* ── HERO ── */}
       <section
         className="grid grid-cols-1 lg:grid-cols-2"
-        style={{ marginTop: 56, minHeight: 620 }}
+        style={{ marginTop: 90, minHeight: 620 }}
       >
         {/* LEFT — content */}
         <div
-          className="order-2 lg:order-1 flex items-start justify-start px-6 py-12 lg:px-16 xl:px-24"
+          className="order-2 lg:order-1 flex items-center justify-start px-6 py-12 lg:px-16 xl:px-24"
           style={{ backgroundColor: "#F9F6F1" }}
         >
           <div style={{ maxWidth: 460, width: "100%" }}>
