@@ -845,6 +845,9 @@ export default function Home() {
                   <div className="flex-1 p-6 space-y-6">
                     <Link href="/" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>Boutique</Link>
                     <Link href="/track" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>Track Order</Link>
+                    <Link href="/about" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>About Us</Link>
+                    <Link href="/contact" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>Contact Us</Link>
+                    <Link href="/faqs" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>FAQs</Link>
                   </div>
                 </div>
               </SheetContent>
