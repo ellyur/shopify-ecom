@@ -916,7 +916,7 @@ export default function Home() {
         <img
           src="https://res.cloudinary.com/tjrvesfo/image/upload/v1782924269/3955d9a4-369b-4785-80b9-0b0215e6dbe1_1_mxuldn.jpg"
           alt="Fresh floral arrangements"
-          className="absolute inset-0 w-full h-full object-cover object-center hidden md:block"
+          className="absolute inset-0 w-full h-full object-cover object-top hidden md:block"
         />
 
         {/* ── MOBILE overlays (unchanged) ── */}
