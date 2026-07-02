@@ -16,21 +16,21 @@ const DEFAULT_HOURS = [
 
 function BotanicalDivider() {
   return (
-    <div className="flex items-center gap-1.5 my-2">
-      <svg width="14" height="10" viewBox="0 0 14 10" className="text-foreground/50">
+    <div className="flex items-center gap-1.5 my-3">
+      <svg width="14" height="10" viewBox="0 0 14 10" style={{ color: "#999" }}>
         <path d="M0 5 Q3 1 7 3 Q3 8 0 5Z" fill="currentColor"/>
         <path d="M14 5 Q11 1 7 3 Q11 8 14 5Z" fill="currentColor"/>
       </svg>
-      <div className="h-px w-8 bg-foreground/30" />
-      <svg width="8" height="8" viewBox="0 0 8 8" className="text-foreground/50">
+      <div className="h-px w-8" style={{ backgroundColor: "#ccc" }} />
+      <svg width="8" height="8" viewBox="0 0 8 8" style={{ color: "#999" }}>
         <circle cx="4" cy="4" r="1.5" fill="currentColor"/>
         <path d="M4 0.5 L4.5 2.5 L4 2 L3.5 2.5Z" fill="currentColor"/>
         <path d="M4 7.5 L4.5 5.5 L4 6 L3.5 5.5Z" fill="currentColor"/>
         <path d="M0.5 4 L2.5 3.5 L2 4 L2.5 4.5Z" fill="currentColor"/>
         <path d="M7.5 4 L5.5 3.5 L6 4 L5.5 4.5Z" fill="currentColor"/>
       </svg>
-      <div className="h-px w-8 bg-foreground/30" />
-      <svg width="14" height="10" viewBox="0 0 14 10" className="text-foreground/50">
+      <div className="h-px w-8" style={{ backgroundColor: "#ccc" }} />
+      <svg width="14" height="10" viewBox="0 0 14 10" style={{ color: "#999" }}>
         <path d="M0 5 Q3 1 7 3 Q3 8 0 5Z" fill="currentColor"/>
         <path d="M14 5 Q11 1 7 3 Q11 8 14 5Z" fill="currentColor"/>
       </svg>
@@ -65,54 +65,106 @@ export default function About() {
     <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
 
-      {/* ── HERO ── */}
-      <section className="relative w-full overflow-hidden" style={{ marginTop: 56, minHeight: 420 }}>
-        <img
-          src={HERO_IMG}
-          alt="About us"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "65% center" }}
-        />
-        {/* gradient covers left 55% heavily, fades right */}
-        <div className="absolute inset-0" style={{
-          background: "linear-gradient(to right, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.92) 28%, rgba(255,255,255,0.60) 46%, rgba(255,255,255,0.0) 62%)"
-        }} />
-
-        {/* Text block — absolutely positioned, hard-clipped to 44% of viewport */}
-        <div className="absolute top-0 left-0 bottom-0 overflow-hidden" style={{ width: "44%" }}>
-          <div className="pt-6 pr-6" style={{ paddingLeft: "clamp(16px, 4vw, 80px)" }}>
+      {/* ── HERO — 2-column grid: 45% content / 55% image ── */}
+      <section
+        className="grid grid-cols-1 lg:[grid-template-columns:45%_55%]"
+        style={{ marginTop: 56, minHeight: 700 }}
+      >
+        {/* LEFT — off-white content panel */}
+        <div
+          style={{ backgroundColor: "#F9F7F3" }}
+          className="flex items-center order-2 lg:order-1
+                     px-6 py-16
+                     lg:[padding-left:120px] lg:[padding-right:80px]"
+        >
+          <div style={{ maxWidth: 460 }}>
             <h1
-              className="font-serif font-bold uppercase text-foreground leading-none mb-2"
-              style={{ fontSize: "clamp(28px, 5.5vw, 56px)" }}
+              style={{
+                fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+                fontSize: "clamp(42px, 5vw, 64px)",
+                fontWeight: 600,
+                lineHeight: 1,
+                color: "#1a1a1a",
+                textTransform: "uppercase",
+                letterSpacing: "0.02em",
+                marginBottom: 16,
+                whiteSpace: "nowrap",
+              }}
             >
               About Us
             </h1>
+
             <p
-              className="font-serif italic text-foreground/80 leading-snug mb-1"
-              style={{ fontSize: "clamp(13px, 2.4vw, 22px)" }}
+              style={{
+                fontFamily: "'Great Vibes', cursive",
+                fontSize: "clamp(22px, 2.4vw, 28px)",
+                color: "#666",
+                marginBottom: 16,
+                lineHeight: 1.3,
+              }}
             >
               Our story in every bloom.
             </p>
+
             <BotanicalDivider />
-            <p className="text-foreground/75 leading-relaxed mb-2"
-               style={{ fontSize: "clamp(11px, 1.4vw, 14px)" }}>
+
+            <p
+              style={{
+                maxWidth: 450,
+                fontSize: "clamp(15px, 1.3vw, 20px)",
+                lineHeight: 1.8,
+                color: "#555",
+                marginBottom: 12,
+              }}
+            >
               At {storeName}, flowers are more than just gifts — they are emotions,
               memories, and moments made beautiful.
             </p>
-            <p className="text-foreground/75 leading-relaxed"
-               style={{ fontSize: "clamp(11px, 1.4vw, 14px)" }}>
+            <p
+              style={{
+                maxWidth: 450,
+                fontSize: "clamp(15px, 1.3vw, 20px)",
+                lineHeight: 1.8,
+                color: "#555",
+              }}
+            >
               We handcraft each bouquet with love, using the freshest blooms to
               help you express what words cannot.
             </p>
           </div>
         </div>
 
-        {/* spacer so section has height */}
-        <div style={{ minHeight: 420 }} />
+        {/* RIGHT — full-height image */}
+        <div className="relative order-1 lg:order-2" style={{ minHeight: 380 }}>
+          <img
+            src={HERO_IMG}
+            alt="About us — florist arranging flowers"
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center right",
+            }}
+          />
+          {/* soft fade blending left edge of image into the content panel */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(90deg, #F9F7F3 0%, #F9F7F3 10%, rgba(249,247,243,0.6) 30%, rgba(249,247,243,0) 55%)",
+            }}
+          />
+        </div>
       </section>
 
       {/* ── OUR LOCATION ── */}
-      <section className="px-4 sm:px-8 md:px-16 lg:px-24 pt-8 pb-6 w-full max-w-6xl mx-auto">
+      <section
+        className="px-4 sm:px-8 md:px-16 lg:px-24 pb-6 w-full max-w-6xl mx-auto"
+        style={{ marginTop: 40 }}
+      >
         <SectionHeader label="Our Location" />
         <div className="grid grid-cols-2 gap-4 md:gap-6">
           <div className="overflow-hidden rounded-xl" style={{ aspectRatio: "3/4" }}>
@@ -184,18 +236,23 @@ export default function About() {
           background: "linear-gradient(to right, rgba(245,240,235,0.96) 0%, rgba(245,240,235,0.90) 28%, rgba(245,240,235,0.55) 46%, transparent 62%)"
         }} />
 
-        {/* Text block — absolutely positioned, hard-clipped */}
         <div className="absolute top-0 left-0 bottom-0 overflow-hidden" style={{ width: "44%" }}>
           <div className="pt-8 pr-6" style={{ paddingLeft: "clamp(16px, 4vw, 80px)" }}>
             <h2
-              className="font-serif font-bold uppercase text-foreground leading-none mb-2"
-              style={{ fontSize: "clamp(28px, 5.5vw, 56px)" }}
+              style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: "clamp(28px, 5vw, 56px)",
+                fontWeight: 600,
+                lineHeight: 1,
+                color: "#1a1a1a",
+                textTransform: "uppercase",
+                marginBottom: 12,
+              }}
             >
               Thank You
             </h2>
             <BotanicalDivider />
-            <p className="text-foreground/75 leading-relaxed"
-               style={{ fontSize: "clamp(11px, 1.4vw, 14px)" }}>
+            <p style={{ fontSize: "clamp(13px, 1.3vw, 16px)", lineHeight: 1.8, color: "#555" }}>
               Every bouquet we create is a reflection of our passion and gratitude.
               Thank you for letting us be part of your special moments.
             </p>
