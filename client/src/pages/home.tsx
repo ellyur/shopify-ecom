@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Link, useLocation } from "wouter";
 import { useInfiniteProducts, useProductsCount, useCategories, useSpecialOffers, usePublicSettings, useAllProducts } from "@/hooks/use-products";
 import { ProductCard } from "@/components/product-card";
-import { Search, Loader2, SlidersHorizontal, MapPin, ShoppingBag, Home as HomeIcon, Truck, PackageCheck, X, ChevronDown, Flower2, ChevronRight, Menu, ShieldCheck, Headphones } from "lucide-react";
+import { Search, Loader2, SlidersHorizontal, MapPin, ShoppingBag, Home as HomeIcon, Truck, PackageCheck, X, ChevronDown, Flower2, ChevronRight, Menu, ShieldCheck, Headphones, User } from "lucide-react";
 import heroImage from "@assets/hero_background.png";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -218,6 +218,15 @@ export default function Home() {
   const [sortBy, setSortBy] = useState<"default" | "price-asc" | "price-desc" | "newest">("default");
   const [activeSlide, setActiveSlide] = useState(0);
   const [heroNavOpen, setHeroNavOpen] = useState(false);
+  const [modelViewSections, setModelViewSections] = useState<Set<string>>(new Set());
+
+  const toggleModelView = (sectionKey: string) => {
+    setModelViewSections(prev => {
+      const next = new Set(prev);
+      next.has(sectionKey) ? next.delete(sectionKey) : next.add(sectionKey);
+      return next;
+    });
+  };
   const slideHovered = useRef(false);
   const offerSlides = useMemo(() => {
     return (specialOffers ?? []).map((offer) => ({
@@ -705,6 +714,21 @@ export default function Home() {
                 ) : (
                   <h3 className="text-base font-semibold font-sans text-foreground shrink-0">{section.label}</h3>
                 )}
+                {/* Model-view toggle — mobile only, only if any product in section has a 2nd image */}
+                {section.products.some(p => p.images?.[1]) && (
+                  <button
+                    type="button"
+                    onClick={() => toggleModelView(section.key)}
+                    className={`md:hidden shrink-0 flex items-center justify-center h-6 w-6 rounded-full border transition-all duration-200 ${
+                      modelViewSections.has(section.key)
+                        ? "bg-primary text-white border-primary"
+                        : "bg-white text-muted-foreground border-border hover:border-primary hover:text-primary"
+                    }`}
+                    title="Show model view"
+                  >
+                    <User className="h-3.5 w-3.5" />
+                  </button>
+                )}
                 <div className="flex-1 h-px bg-border/40" />
                 <span className="text-[10px] text-muted-foreground uppercase tracking-widest shrink-0">
                   {section.products.length} item{section.products.length !== 1 ? "s" : ""}
@@ -714,14 +738,14 @@ export default function Home() {
                 <ScrollRow noNegativeMargin={categoryLayout === "left"}>
                   {section.products.map(product => (
                     <div key={`${section.key}-${product.id}`} className="snap-start shrink-0 w-[118px] md:w-full">
-                      <ProductCard product={product} />
+                      <ProductCard product={product} showSecondImage={modelViewSections.has(section.key)} />
                     </div>
                   ))}
                 </ScrollRow>
               ) : (
                 <div className="grid grid-cols-2 md:grid-cols-8 gap-5 md:gap-3">
                   {section.products.map(product => (
-                    <ProductCard key={`${section.key}-${product.id}`} product={product} />
+                    <ProductCard key={`${section.key}-${product.id}`} product={product} showSecondImage={modelViewSections.has(section.key)} />
                   ))}
                 </div>
               )}

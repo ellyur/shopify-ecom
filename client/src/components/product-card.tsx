@@ -18,6 +18,7 @@ function parseSwatch(colorHex: string) {
 
 interface ProductCardProps {
   product: Product;
+  showSecondImage?: boolean;
 }
 
 const BADGE_STYLES: Record<string, string> = {
@@ -121,7 +122,7 @@ function StarRatingWidget({ productId }: { productId: number }) {
   );
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, showSecondImage: showSecondImageProp = false }: ProductCardProps) {
   const { addItem } = useCart();
   const [, setLocation] = useLocation();
   const [showImageModal, setShowImageModal] = useState(false);
@@ -136,7 +137,6 @@ export function ProductCard({ product }: ProductCardProps) {
   const didSwipeRef = useRef(false);
 
   const [isHovered, setIsHovered] = useState(false);
-  const [showSecondImage, setShowSecondImage] = useState(false);
 
   const allImages = useMemo(() => {
     const imgs: { src: string; variantId: number | null }[] = [];
@@ -162,7 +162,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const selectedVariant = variants.find((v) => v.id === selectedVariantId) ?? null;
 
   const secondImage = product.images?.[1] ?? null;
-  const hoverImage = !isVariantLocked && (isHovered || showSecondImage) && secondImage
+  const hoverImage = !isVariantLocked && (isHovered || showSecondImageProp) && secondImage
     ? secondImage
     : null;
 
@@ -327,31 +327,8 @@ export function ProductCard({ product }: ProductCardProps) {
                 </div>
               )}
 
-              {/* Bottom row: model preview (left, mobile only) + Add to cart (right) */}
-              <div className="absolute bottom-2 left-0 right-0 z-20 flex items-center justify-between px-2 pointer-events-none">
-                {/* Model/2nd image toggle — mobile only, only when 2nd image exists */}
-                {secondImage ? (
-                  <Button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      setShowSecondImage(prev => !prev);
-                    }}
-                    size="icon"
-                    data-testid={`button-model-view-${product.id}`}
-                    className={`pointer-events-auto md:hidden rounded-full border-none h-8 w-8 shadow-lg active:scale-95 transition-all duration-200 ${
-                      showSecondImage
-                        ? "bg-primary text-white"
-                        : "bg-white/80 text-foreground hover:bg-white"
-                    }`}
-                  >
-                    <User className="h-4 w-4" />
-                  </Button>
-                ) : (
-                  <span className="md:hidden" />
-                )}
-
-                {/* Add to cart */}
+              {/* Bottom row: Add to cart */}
+              <div className="absolute bottom-2 right-2 z-20 pointer-events-none">
                 <Button
                   onClick={handleAddToCart}
                   disabled={product.stock <= 0}
