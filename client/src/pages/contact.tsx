@@ -44,7 +44,7 @@ function Row({ icon: Icon, label, children }: {
 }) {
   return (
     <div className="flex items-start gap-3">
-      <div className="shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-full border border-border/70 flex items-center justify-center mt-0.5">
+      <div className="shrink-0 w-9 h-9 rounded-full border border-border/70 flex items-center justify-center mt-0.5">
         <Icon className="h-4 w-4 text-foreground/60" />
       </div>
       <div className="min-w-0 flex-1">
@@ -86,39 +86,41 @@ export default function Contact() {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: "70% center" }}
         />
+        {/* gradient: strong white on left, fades away by 62% */}
         <div className="absolute inset-0" style={{
-          background: "linear-gradient(to right, rgba(255,255,255,0.93) 0%, rgba(255,255,255,0.80) 30%, rgba(255,255,255,0.30) 52%, transparent 70%)"
+          background: "linear-gradient(to right, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.92) 28%, rgba(255,255,255,0.60) 46%, rgba(255,255,255,0.0) 62%)"
         }} />
 
-        {/* text block — responsive width, aligned with content padding */}
-        <div className="absolute inset-0 flex flex-col justify-start" style={{ minHeight: 420 }}>
-          <div className="pt-6 pl-6 md:pl-12 lg:pl-20" style={{ width: "45%" }}>
+        {/* Text block — absolutely positioned, hard-clipped to 44% */}
+        <div className="absolute top-0 left-0 bottom-0 overflow-hidden" style={{ width: "44%" }}>
+          <div className="pt-6 pr-6" style={{ paddingLeft: "clamp(16px, 4vw, 80px)" }}>
             <h1
               className="font-serif font-bold uppercase text-foreground leading-none mb-2"
-              style={{ fontSize: "clamp(28px, 6vw, 58px)" }}
+              style={{ fontSize: "clamp(28px, 5.5vw, 56px)" }}
             >
               Contact Us
             </h1>
             <p
               className="font-serif italic text-foreground/80 leading-snug mb-1"
-              style={{ fontSize: "clamp(13px, 2.8vw, 24px)" }}
+              style={{ fontSize: "clamp(13px, 2.4vw, 22px)" }}
             >
               We'd love to hear from you.
             </p>
             <BotanicalDivider />
-            <p
-              className="text-foreground/75 leading-relaxed"
-              style={{ fontSize: "clamp(11px, 1.6vw, 15px)" }}
-            >
+            <p className="text-foreground/75 leading-relaxed"
+               style={{ fontSize: "clamp(11px, 1.4vw, 14px)" }}>
               Have a question, special request, or need help with your order?
               Our team is here to assist you anytime.
             </p>
           </div>
         </div>
+
+        {/* spacer so section has height */}
+        <div style={{ minHeight: 420 }} />
       </section>
 
       {/* ── GET IN TOUCH ── */}
-      <section className="px-6 md:px-12 lg:px-20 pt-8 pb-6 w-full max-w-6xl mx-auto">
+      <section className="px-4 sm:px-8 md:px-16 lg:px-24 pt-8 pb-6 w-full max-w-6xl mx-auto">
         {/* centered header */}
         <div className="flex items-center gap-3 mb-7">
           <div className="flex-1 h-px bg-border/50" />
@@ -128,7 +130,7 @@ export default function Contact() {
           <div className="flex-1 h-px bg-border/50" />
         </div>
 
-        {/* 55/45 split */}
+        {/* 55 / 45 split */}
         <div className="grid gap-5 md:gap-8" style={{ gridTemplateColumns: "55% 1fr" }}>
 
           {/* LEFT — contact rows */}
@@ -136,11 +138,11 @@ export default function Contact() {
             {footer.phone && (
               <Row icon={Phone} label="Phone">
                 <p className="font-bold text-foreground leading-tight"
-                   style={{ fontSize: "clamp(13px, 1.6vw, 17px)", wordBreak: "break-word" }}>
+                   style={{ fontSize: "clamp(13px, 1.5vw, 16px)", wordBreak: "break-word" }}>
                   {footer.phone}
                 </p>
                 <p className="text-muted-foreground mt-0.5"
-                   style={{ fontSize: "clamp(10px, 1.2vw, 13px)" }}>
+                   style={{ fontSize: "clamp(10px, 1.1vw, 13px)" }}>
                   Mon – Sun, 8:00 AM – 7:00 PM
                 </p>
               </Row>
@@ -149,11 +151,11 @@ export default function Contact() {
             {footer.email && (
               <Row icon={Mail} label="Email">
                 <p className="font-bold text-foreground leading-tight"
-                   style={{ fontSize: "clamp(12px, 1.5vw, 16px)", wordBreak: "break-all" }}>
+                   style={{ fontSize: "clamp(12px, 1.4vw, 16px)", wordBreak: "break-all" }}>
                   {footer.email}
                 </p>
                 <p className="text-muted-foreground mt-0.5"
-                   style={{ fontSize: "clamp(10px, 1.2vw, 13px)" }}>
+                   style={{ fontSize: "clamp(10px, 1.1vw, 13px)" }}>
                   We'll respond as soon as possible.
                 </p>
               </Row>
@@ -162,7 +164,7 @@ export default function Contact() {
             {footer.address && (
               <Row icon={MapPin} label="Address">
                 <p className="text-foreground leading-snug"
-                   style={{ fontSize: "clamp(12px, 1.5vw, 15px)" }}>
+                   style={{ fontSize: "clamp(12px, 1.4vw, 15px)" }}>
                   {footer.address}
                 </p>
               </Row>
@@ -178,10 +180,11 @@ export default function Contact() {
               <div className="space-y-1 mt-0.5">
                 {hoursLines.map((h, i) => (
                   <div key={i} className="flex justify-between gap-4">
-                    <span className="text-foreground" style={{ fontSize: "clamp(11px, 1.4vw, 14px)" }}>
+                    <span className="text-foreground" style={{ fontSize: "clamp(11px, 1.3vw, 14px)" }}>
                       {h.day}
                     </span>
-                    <span className="text-foreground whitespace-nowrap" style={{ fontSize: "clamp(11px, 1.4vw, 14px)" }}>
+                    <span className="text-foreground whitespace-nowrap"
+                          style={{ fontSize: "clamp(11px, 1.3vw, 14px)" }}>
                       {h.time}
                     </span>
                   </div>
@@ -199,8 +202,7 @@ export default function Contact() {
                  style={{ minHeight: 140 }}>
               {footer.address ? (
                 <iframe
-                  title="Store map"
-                  width="100%" height="100%"
+                  title="Store map" width="100%" height="100%"
                   style={{ border: 0, minHeight: 140, display: "block" }}
                   src={`https://maps.google.com/maps?q=${encodeURIComponent(footer.address)}&output=embed`}
                   allowFullScreen
@@ -218,16 +220,16 @@ export default function Contact() {
 
       {/* ── FOLLOW US ── */}
       {socials.length > 0 && (
-        <section className="px-6 md:px-12 lg:px-20 py-6 w-full max-w-6xl mx-auto border-t border-border/30">
+        <section className="px-4 sm:px-8 md:px-16 lg:px-24 py-6 w-full max-w-6xl mx-auto border-t border-border/30">
           <div className="flex items-start justify-between gap-6">
             <div className="shrink-0">
               <p className="font-serif font-bold uppercase text-foreground leading-none"
-                 style={{ fontSize: "clamp(20px, 3vw, 32px)" }}>
+                 style={{ fontSize: "clamp(20px, 2.8vw, 32px)" }}>
                 Follow Us
               </p>
               <BotanicalDivider />
               <p className="text-muted-foreground leading-relaxed"
-                 style={{ fontSize: "clamp(11px, 1.3vw, 14px)", maxWidth: 260 }}>
+                 style={{ fontSize: "clamp(11px, 1.2vw, 14px)", maxWidth: 260 }}>
                 Stay inspired with fresh blooms, arrangements, and flower care tips.
               </p>
             </div>
@@ -251,17 +253,17 @@ export default function Contact() {
       <section className="relative w-full overflow-hidden" style={{ minHeight: 260 }}>
         <img src={BOTTOM_IMG} alt="Closing" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(28,46,28,0.72)" }} />
-        <div className="relative z-10 flex flex-col justify-center h-full px-6 md:px-12 lg:px-20 py-12"
-             style={{ minHeight: 260 }}>
+        <div className="relative z-10 flex flex-col justify-center h-full py-12"
+             style={{ minHeight: 260, paddingLeft: "clamp(16px, 4vw, 80px)" }}>
           <div className="w-10 h-10 rounded-full border border-white/50 flex items-center justify-center mb-4">
             <Heart className="h-5 w-5 text-white/80" />
           </div>
           <p className="font-serif italic text-white leading-snug mb-2"
-             style={{ fontSize: "clamp(16px, 2.8vw, 28px)", maxWidth: 440 }}>
+             style={{ fontSize: "clamp(16px, 2.6vw, 28px)", maxWidth: 440 }}>
             We can't wait to create something beautiful for you.
           </p>
           <p className="font-serif italic text-white/65"
-             style={{ fontSize: "clamp(12px, 1.6vw, 18px)" }}>
+             style={{ fontSize: "clamp(12px, 1.5vw, 18px)" }}>
             Thank you for choosing {storeName}.
           </p>
         </div>
