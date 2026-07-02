@@ -830,28 +830,45 @@ export default function Home() {
       <nav className="fixed left-0 right-0 z-40 transition-all duration-300 top-[34px] bg-white border-b border-border/30 shadow-sm py-2">
         <div className="max-w-screen-2xl mx-auto px-4 md:px-6">
           <div className="relative flex items-center justify-between h-12">
-            {/* Hamburger */}
-            <Sheet open={heroNavOpen} onOpenChange={setHeroNavOpen}>
-              <SheetTrigger asChild>
-                <button aria-label="Open menu" className="p-2 rounded-md transition-colors text-foreground hover:bg-muted/60">
-                  <Menu className="h-6 w-6" />
-                </button>
-              </SheetTrigger>
-              <SheetContent side="left" className="w-[85vw] max-w-[320px] p-0 border-r-0 bg-white">
-                <div className="flex flex-col h-full">
-                  <div className="p-6 border-b border-border/50 bg-primary/5">
-                    <BrandLogo className="h-10 w-auto" showFallbackText />
+            {/* Hamburger — mobile only */}
+            <div className="flex items-center md:hidden">
+              <Sheet open={heroNavOpen} onOpenChange={setHeroNavOpen}>
+                <SheetTrigger asChild>
+                  <button aria-label="Open menu" className="p-2 rounded-md transition-colors text-foreground hover:bg-muted/60">
+                    <Menu className="h-6 w-6" />
+                  </button>
+                </SheetTrigger>
+                <SheetContent side="left" className="w-[85vw] max-w-[320px] p-0 border-r-0 bg-white">
+                  <div className="flex flex-col h-full">
+                    <div className="p-6 border-b border-border/50 bg-primary/5">
+                      <BrandLogo className="h-10 w-auto" showFallbackText />
+                    </div>
+                    <div className="flex-1 p-6 space-y-6">
+                      <Link href="/" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>Boutique</Link>
+                      <Link href="/track" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>Track Order</Link>
+                      <Link href="/about" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>About Us</Link>
+                      <Link href="/contact" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>Contact Us</Link>
+                      <Link href="/faqs" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>FAQs</Link>
+                    </div>
                   </div>
-                  <div className="flex-1 p-6 space-y-6">
-                    <Link href="/" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>Boutique</Link>
-                    <Link href="/track" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>Track Order</Link>
-                    <Link href="/about" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>About Us</Link>
-                    <Link href="/contact" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>Contact Us</Link>
-                    <Link href="/faqs" className="block text-lg font-medium text-foreground hover:text-primary transition-colors" onClick={() => setHeroNavOpen(false)}>FAQs</Link>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
+                </SheetContent>
+              </Sheet>
+            </div>
+
+            {/* Desktop nav links */}
+            <div className="hidden md:flex items-center gap-6">
+              {[
+                { href: "/", label: "Boutique" },
+                { href: "/track", label: "Track Order" },
+                { href: "/about", label: "About Us" },
+                { href: "/contact", label: "Contact Us" },
+                { href: "/faqs", label: "FAQs" },
+              ].map((link) => (
+                <Link key={link.href} href={link.href} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                  {link.label}
+                </Link>
+              ))}
+            </div>
 
             {/* Center logo */}
             <Link href="/" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
