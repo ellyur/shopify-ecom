@@ -148,8 +148,9 @@ export default function About() {
               objectPosition: "center right",
             }}
           />
-          {/* soft fade blending left edge of image into the content panel */}
+          {/* soft fade blending left edge of image into the content panel — desktop only */}
           <div
+            className="hidden lg:block"
             style={{
               position: "absolute",
               inset: 0,
