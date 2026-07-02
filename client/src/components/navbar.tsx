@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { CartDrawer } from "./cart-drawer";
-import { Menu, User, Truck, Flower2 } from "lucide-react";
+import { Menu, User, Truck } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
