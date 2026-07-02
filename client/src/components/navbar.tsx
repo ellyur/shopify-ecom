@@ -58,12 +58,15 @@ export function Navbar() {
 
             {/* Desktop nav links */}
             <div className="hidden md:flex items-center gap-6">
-              <Link href="/" className={cn("text-sm font-medium transition-colors", location === "/" ? "text-primary" : "text-muted-foreground hover:text-foreground")}>
-                Boutique
-              </Link>
-              <Link href="/track" className={cn("text-sm font-medium transition-colors", location === "/track" ? "text-primary" : "text-muted-foreground hover:text-foreground")}>
-                Track Order
-              </Link>
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn("text-sm font-medium transition-colors", location === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground")}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
 
             {/* Logo Center */}
