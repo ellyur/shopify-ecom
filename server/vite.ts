@@ -29,6 +29,14 @@ export async function setupVite(server: Server, app: Express) {
     appType: "custom",
   });
 
+  // Disable caching in development so browsers always get fresh JS/CSS
+  app.use((req, res, next) => {
+    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
+    next();
+  });
+
   app.use(vite.middlewares);
 
   app.use("/{*path}", async (req, res, next) => {
