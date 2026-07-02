@@ -78,45 +78,48 @@ export default function Contact() {
     <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
 
-      {/* ── HERO ── */}
-      <section className="relative w-full overflow-hidden" style={{ marginTop: 56, minHeight: 420 }}>
-        <img
-          src={HERO_IMG}
-          alt="Contact us"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "70% center" }}
-        />
-        {/* gradient: strong white on left, fades away by 62% */}
-        <div className="absolute inset-0" style={{
-          background: "linear-gradient(to right, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.92) 28%, rgba(255,255,255,0.60) 46%, rgba(255,255,255,0.0) 62%)"
-        }} />
+      {/* ── HERO — 2-column grid (desktop) / stacked (mobile) ── */}
+      <section className="grid lg:grid-cols-2" style={{ marginTop: 56, minHeight: 700 }}>
 
-        {/* Text block — absolutely positioned, hard-clipped to 44% */}
-        <div className="absolute top-0 left-0 bottom-0 overflow-hidden" style={{ width: "44%" }}>
-          <div className="pt-6 pr-6" style={{ paddingLeft: "clamp(16px, 4vw, 80px)" }}>
+        {/* LEFT — off-white content panel (shows second on mobile) */}
+        <div className="order-2 lg:order-1 flex items-center justify-start
+                        px-6 py-16 lg:px-16 xl:px-24 bg-[#F9F6F1]">
+          <div style={{ maxWidth: 420 }}>
             <h1
-              className="font-serif font-bold uppercase text-foreground leading-none mb-2"
-              style={{ fontSize: "clamp(28px, 5.5vw, 56px)" }}
+              className="font-serif font-bold uppercase text-foreground leading-none mb-3 whitespace-nowrap"
+              style={{ fontSize: "clamp(42px, 4.5vw, 62px)" }}
             >
               Contact Us
             </h1>
             <p
-              className="font-serif italic text-foreground/80 leading-snug mb-1"
-              style={{ fontSize: "clamp(13px, 2.4vw, 22px)" }}
+              className="font-serif italic text-foreground/75 mb-3"
+              style={{ fontSize: "clamp(16px, 1.8vw, 22px)" }}
             >
               We'd love to hear from you.
             </p>
             <BotanicalDivider />
-            <p className="text-foreground/75 leading-relaxed"
-               style={{ fontSize: "clamp(11px, 1.4vw, 14px)" }}>
+            <p
+              className="text-foreground/70 mt-2"
+              style={{ fontSize: "clamp(14px, 1.1vw, 16px)", lineHeight: 1.8 }}
+            >
               Have a question, special request, or need help with your order?
               Our team is here to assist you anytime.
             </p>
           </div>
         </div>
 
-        {/* spacer so section has height */}
-        <div style={{ minHeight: 420 }} />
+        {/* RIGHT — floral image with left-bleeding gradient (shows first on mobile) */}
+        <div className="order-1 lg:order-2 relative" style={{ minHeight: 360 }}>
+          <img
+            src={HERO_IMG}
+            alt="Contact us"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "70% center" }}
+          />
+          {/* gradient bleeds left so the panel boundary looks seamless */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#F9F6F1] via-[#F9F6F1]/25 to-transparent" />
+        </div>
+
       </section>
 
       {/* ── GET IN TOUCH ── */}
