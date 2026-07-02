@@ -2,7 +2,7 @@ import { Navbar } from "@/components/navbar";
 import { StoreFooter } from "@/components/store-footer";
 import { getFooterSettings } from "@/components/store-footer";
 import { usePublicSettings } from "@/hooks/use-products";
-import { Flower2, Heart, MapPin, Clock, Leaf } from "lucide-react";
+import { Heart, MapPin, Clock, Leaf } from "lucide-react";
 
 const HERO_IMG   = "https://res.cloudinary.com/caytgopc/image/upload/v1782969822/ChatGPT_Image_Jul_2_2026_01_21_13_PM_h6wr9y.jpg";
 const STORE_IMG  = "https://res.cloudinary.com/caytgopc/image/upload/v1782969845/Storefront_Extracted_ucqjjb.jpg";
@@ -226,7 +226,12 @@ export default function About() {
       <section style={{ backgroundColor: "#2d4a2d" }} className="py-4 px-4">
         <div className="flex items-center justify-around max-w-2xl mx-auto">
           <div className="flex items-center gap-1.5">
-            <Flower2 className="h-4 w-4 text-white/70" />
+            <img
+              src="https://res.cloudinary.com/caytgopc/image/upload/v1782970690/flower_byhj4m.png"
+              alt="Fresh & Handcrafted"
+              className="h-4 w-4 object-contain"
+              style={{ filter: "brightness(0) invert(1) opacity(0.7)" }}
+            />
             <span className="text-white font-semibold uppercase tracking-widest"
                   style={{ fontSize: "clamp(8px, 2.2vw, 11px)" }}>
               Fresh &amp; Handcrafted
