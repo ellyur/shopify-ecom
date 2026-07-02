@@ -236,26 +236,6 @@ export default function About() {
             style={{ objectPosition: "70% center" }}
           />
         </div>
-        <div className="px-6 py-8" style={{ backgroundColor: "#F5F0EB" }}>
-          <h2
-            style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: "clamp(32px, 8vw, 48px)",
-              fontWeight: 600,
-              lineHeight: 1,
-              color: "#1a1a1a",
-              textTransform: "uppercase",
-              marginBottom: 12,
-            }}
-          >
-            Thank You
-          </h2>
-          <BotanicalDivider />
-          <p style={{ fontSize: 15, lineHeight: 1.8, color: "#555" }}>
-            Every bouquet we create is a reflection of our passion and gratitude.
-            Thank you for letting us be part of your special moments.
-          </p>
-        </div>
       </section>
 
       {/* Desktop: overlay layout */}
