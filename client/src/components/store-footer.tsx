@@ -114,6 +114,9 @@ export function StoreFooter() {
             <div className="space-y-2">
               <a href="/" className="block text-white/70 text-sm hover:text-white transition-colors" data-testid="link-footer-home">Home</a>
               <a href="/track" className="block text-white/70 text-sm hover:text-white transition-colors" data-testid="link-footer-track">Track Order</a>
+              <a href="/about" className="block text-white/70 text-sm hover:text-white transition-colors" data-testid="link-footer-about">About Us</a>
+              <a href="/contact" className="block text-white/70 text-sm hover:text-white transition-colors" data-testid="link-footer-contact">Contact Us</a>
+              <a href="/faqs" className="block text-white/70 text-sm hover:text-white transition-colors" data-testid="link-footer-faqs">FAQs</a>
             </div>
           </div>
         </div>
